@@ -1,0 +1,2499 @@
+nohup: ignoring input
+Using device: cuda:0
+
+#######################################################################
+Please cite the following paper when using nnU-Net:
+Isensee, F., Jaeger, P. F., Kohl, S. A., Petersen, J., & Maier-Hein, K. H. (2021). nnU-Net: a self-configuring method for deep learning-based biomedical image segmentation. Nature methods, 18(2), 203-211.
+#######################################################################
+
+UMambaEnc: UMambaEnc(
+  (encoder): ResidualMambaEncoder(
+    (stem): StackedConvBlocks(
+      (convs): Sequential(
+        (0): ConvDropoutNormReLU(
+          (conv): Conv3d(3, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+          (norm): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+          (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+          (all_modules): Sequential(
+            (0): Conv3d(3, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+            (1): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+            (2): LeakyReLU(negative_slope=0.01, inplace=True)
+          )
+        )
+      )
+    )
+    (stages): ModuleList(
+      (0): StackedResidualBlocks(
+        (blocks): Sequential(
+          (0): BasicBlockD(
+            (conv1): ConvDropoutNormReLU(
+              (conv): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+              (all_modules): Sequential(
+                (0): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (2): LeakyReLU(negative_slope=0.01, inplace=True)
+              )
+            )
+            (conv2): ConvDropoutNormReLU(
+              (conv): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (all_modules): Sequential(
+                (0): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              )
+            )
+            (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+          )
+          (1): BasicBlockD(
+            (conv1): ConvDropoutNormReLU(
+              (conv): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+              (all_modules): Sequential(
+                (0): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (2): LeakyReLU(negative_slope=0.01, inplace=True)
+              )
+            )
+            (conv2): ConvDropoutNormReLU(
+              (conv): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (all_modules): Sequential(
+                (0): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              )
+            )
+            (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+          )
+        )
+      )
+      (1): StackedResidualBlocks(
+        (blocks): Sequential(
+          (0): BasicBlockD(
+            (conv1): ConvDropoutNormReLU(
+              (conv): Conv3d(32, 64, kernel_size=(1, 3, 3), stride=(1, 2, 2), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+              (all_modules): Sequential(
+                (0): Conv3d(32, 64, kernel_size=(1, 3, 3), stride=(1, 2, 2), padding=(0, 1, 1))
+                (1): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (2): LeakyReLU(negative_slope=0.01, inplace=True)
+              )
+            )
+            (conv2): ConvDropoutNormReLU(
+              (conv): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (all_modules): Sequential(
+                (0): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              )
+            )
+            (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+            (skip): Sequential(
+              (0): AvgPool3d(kernel_size=[1, 2, 2], stride=[1, 2, 2], padding=0)
+              (1): ConvDropoutNormReLU(
+                (conv): Conv3d(32, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+                (norm): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(32, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+                  (1): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+            )
+          )
+          (1): BasicBlockD(
+            (conv1): ConvDropoutNormReLU(
+              (conv): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+              (all_modules): Sequential(
+                (0): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (2): LeakyReLU(negative_slope=0.01, inplace=True)
+              )
+            )
+            (conv2): ConvDropoutNormReLU(
+              (conv): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (all_modules): Sequential(
+                (0): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              )
+            )
+            (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+          )
+        )
+      )
+      (2): StackedResidualBlocks(
+        (blocks): Sequential(
+          (0): BasicBlockD(
+            (conv1): ConvDropoutNormReLU(
+              (conv): Conv3d(64, 128, kernel_size=(1, 3, 3), stride=(1, 2, 2), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+              (all_modules): Sequential(
+                (0): Conv3d(64, 128, kernel_size=(1, 3, 3), stride=(1, 2, 2), padding=(0, 1, 1))
+                (1): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (2): LeakyReLU(negative_slope=0.01, inplace=True)
+              )
+            )
+            (conv2): ConvDropoutNormReLU(
+              (conv): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (all_modules): Sequential(
+                (0): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              )
+            )
+            (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+            (skip): Sequential(
+              (0): AvgPool3d(kernel_size=[1, 2, 2], stride=[1, 2, 2], padding=0)
+              (1): ConvDropoutNormReLU(
+                (conv): Conv3d(64, 128, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+                (norm): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(64, 128, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+                  (1): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+            )
+          )
+          (1): BasicBlockD(
+            (conv1): ConvDropoutNormReLU(
+              (conv): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+              (all_modules): Sequential(
+                (0): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (2): LeakyReLU(negative_slope=0.01, inplace=True)
+              )
+            )
+            (conv2): ConvDropoutNormReLU(
+              (conv): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (all_modules): Sequential(
+                (0): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              )
+            )
+            (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+          )
+        )
+      )
+      (3): StackedResidualBlocks(
+        (blocks): Sequential(
+          (0): BasicBlockD(
+            (conv1): ConvDropoutNormReLU(
+              (conv): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 2, 2), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+              (all_modules): Sequential(
+                (0): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 2, 2), padding=(0, 1, 1))
+                (1): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (2): LeakyReLU(negative_slope=0.01, inplace=True)
+              )
+            )
+            (conv2): ConvDropoutNormReLU(
+              (conv): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (all_modules): Sequential(
+                (0): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              )
+            )
+            (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+            (skip): Sequential(
+              (0): AvgPool3d(kernel_size=[1, 2, 2], stride=[1, 2, 2], padding=0)
+            )
+          )
+          (1): BasicBlockD(
+            (conv1): ConvDropoutNormReLU(
+              (conv): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+              (all_modules): Sequential(
+                (0): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (2): LeakyReLU(negative_slope=0.01, inplace=True)
+              )
+            )
+            (conv2): ConvDropoutNormReLU(
+              (conv): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (all_modules): Sequential(
+                (0): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              )
+            )
+            (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+          )
+        )
+      )
+      (4): StackedResidualBlocks(
+        (blocks): Sequential(
+          (0): BasicBlockD(
+            (conv1): ConvDropoutNormReLU(
+              (conv): Conv3d(128, 64, kernel_size=(1, 3, 3), stride=(1, 2, 2), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+              (all_modules): Sequential(
+                (0): Conv3d(128, 64, kernel_size=(1, 3, 3), stride=(1, 2, 2), padding=(0, 1, 1))
+                (1): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (2): LeakyReLU(negative_slope=0.01, inplace=True)
+              )
+            )
+            (conv2): ConvDropoutNormReLU(
+              (conv): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (all_modules): Sequential(
+                (0): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              )
+            )
+            (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+            (skip): Sequential(
+              (0): AvgPool3d(kernel_size=[1, 2, 2], stride=[1, 2, 2], padding=0)
+              (1): ConvDropoutNormReLU(
+                (conv): Conv3d(128, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+                (norm): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(128, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+                  (1): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+            )
+          )
+          (1): BasicBlockD(
+            (conv1): ConvDropoutNormReLU(
+              (conv): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+              (all_modules): Sequential(
+                (0): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (2): LeakyReLU(negative_slope=0.01, inplace=True)
+              )
+            )
+            (conv2): ConvDropoutNormReLU(
+              (conv): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (all_modules): Sequential(
+                (0): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              )
+            )
+            (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+          )
+        )
+      )
+      (5): StackedResidualBlocks(
+        (blocks): Sequential(
+          (0): BasicBlockD(
+            (conv1): ConvDropoutNormReLU(
+              (conv): Conv3d(64, 32, kernel_size=(1, 3, 3), stride=(1, 2, 2), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+              (all_modules): Sequential(
+                (0): Conv3d(64, 32, kernel_size=(1, 3, 3), stride=(1, 2, 2), padding=(0, 1, 1))
+                (1): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (2): LeakyReLU(negative_slope=0.01, inplace=True)
+              )
+            )
+            (conv2): ConvDropoutNormReLU(
+              (conv): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (all_modules): Sequential(
+                (0): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              )
+            )
+            (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+            (skip): Sequential(
+              (0): AvgPool3d(kernel_size=[1, 2, 2], stride=[1, 2, 2], padding=0)
+              (1): ConvDropoutNormReLU(
+                (conv): Conv3d(64, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+                (norm): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(64, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+                  (1): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+            )
+          )
+          (1): BasicBlockD(
+            (conv1): ConvDropoutNormReLU(
+              (conv): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+              (all_modules): Sequential(
+                (0): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (2): LeakyReLU(negative_slope=0.01, inplace=True)
+              )
+            )
+            (conv2): ConvDropoutNormReLU(
+              (conv): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (all_modules): Sequential(
+                (0): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              )
+            )
+            (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+          )
+        )
+      )
+    )
+    (mamba_layers): ModuleList(
+      (0): MambaLayer(
+        (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+        (mamba): Mamba(
+          (in_proj): Linear(in_features=32, out_features=128, bias=False)
+          (conv1d): Conv1d(64, 64, kernel_size=(4,), stride=(1,), padding=(3,), groups=64)
+          (act): SiLU()
+          (x_proj): Linear(in_features=64, out_features=34, bias=False)
+          (dt_proj): Linear(in_features=2, out_features=64, bias=True)
+          (out_proj): Linear(in_features=64, out_features=32, bias=False)
+        )
+      )
+      (1): MambaLayer(
+        (norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+        (mamba): Mamba(
+          (in_proj): Linear(in_features=64, out_features=256, bias=False)
+          (conv1d): Conv1d(128, 128, kernel_size=(4,), stride=(1,), padding=(3,), groups=128)
+          (act): SiLU()
+          (x_proj): Linear(in_features=128, out_features=36, bias=False)
+          (dt_proj): Linear(in_features=4, out_features=128, bias=True)
+          (out_proj): Linear(in_features=128, out_features=64, bias=False)
+        )
+      )
+      (2-3): 2 x MambaLayer(
+        (norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+        (mamba): Mamba(
+          (in_proj): Linear(in_features=128, out_features=512, bias=False)
+          (conv1d): Conv1d(256, 256, kernel_size=(4,), stride=(1,), padding=(3,), groups=256)
+          (act): SiLU()
+          (x_proj): Linear(in_features=256, out_features=40, bias=False)
+          (dt_proj): Linear(in_features=8, out_features=256, bias=True)
+          (out_proj): Linear(in_features=256, out_features=128, bias=False)
+        )
+      )
+      (4): MambaLayer(
+        (norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+        (mamba): Mamba(
+          (in_proj): Linear(in_features=64, out_features=256, bias=False)
+          (conv1d): Conv1d(128, 128, kernel_size=(4,), stride=(1,), padding=(3,), groups=128)
+          (act): SiLU()
+          (x_proj): Linear(in_features=128, out_features=36, bias=False)
+          (dt_proj): Linear(in_features=4, out_features=128, bias=True)
+          (out_proj): Linear(in_features=128, out_features=64, bias=False)
+        )
+      )
+      (5): MambaLayer(
+        (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+        (mamba): Mamba(
+          (in_proj): Linear(in_features=32, out_features=128, bias=False)
+          (conv1d): Conv1d(64, 64, kernel_size=(4,), stride=(1,), padding=(3,), groups=64)
+          (act): SiLU()
+          (x_proj): Linear(in_features=64, out_features=34, bias=False)
+          (dt_proj): Linear(in_features=2, out_features=64, bias=True)
+          (out_proj): Linear(in_features=64, out_features=32, bias=False)
+        )
+      )
+    )
+  )
+  (decoder): UNetResDecoder(
+    (encoder): ResidualMambaEncoder(
+      (stem): StackedConvBlocks(
+        (convs): Sequential(
+          (0): ConvDropoutNormReLU(
+            (conv): Conv3d(3, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+            (norm): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+            (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+            (all_modules): Sequential(
+              (0): Conv3d(3, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (1): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (2): LeakyReLU(negative_slope=0.01, inplace=True)
+            )
+          )
+        )
+      )
+      (stages): ModuleList(
+        (0): StackedResidualBlocks(
+          (blocks): Sequential(
+            (0): BasicBlockD(
+              (conv1): ConvDropoutNormReLU(
+                (conv): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (norm): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+                (all_modules): Sequential(
+                  (0): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                  (1): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (2): LeakyReLU(negative_slope=0.01, inplace=True)
+                )
+              )
+              (conv2): ConvDropoutNormReLU(
+                (conv): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (norm): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                  (1): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+              (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+            )
+            (1): BasicBlockD(
+              (conv1): ConvDropoutNormReLU(
+                (conv): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (norm): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+                (all_modules): Sequential(
+                  (0): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                  (1): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (2): LeakyReLU(negative_slope=0.01, inplace=True)
+                )
+              )
+              (conv2): ConvDropoutNormReLU(
+                (conv): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (norm): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                  (1): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+              (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+            )
+          )
+        )
+        (1): StackedResidualBlocks(
+          (blocks): Sequential(
+            (0): BasicBlockD(
+              (conv1): ConvDropoutNormReLU(
+                (conv): Conv3d(32, 64, kernel_size=(1, 3, 3), stride=(1, 2, 2), padding=(0, 1, 1))
+                (norm): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+                (all_modules): Sequential(
+                  (0): Conv3d(32, 64, kernel_size=(1, 3, 3), stride=(1, 2, 2), padding=(0, 1, 1))
+                  (1): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (2): LeakyReLU(negative_slope=0.01, inplace=True)
+                )
+              )
+              (conv2): ConvDropoutNormReLU(
+                (conv): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (norm): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                  (1): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+              (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+              (skip): Sequential(
+                (0): AvgPool3d(kernel_size=[1, 2, 2], stride=[1, 2, 2], padding=0)
+                (1): ConvDropoutNormReLU(
+                  (conv): Conv3d(32, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+                  (norm): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (all_modules): Sequential(
+                    (0): Conv3d(32, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+                    (1): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  )
+                )
+              )
+            )
+            (1): BasicBlockD(
+              (conv1): ConvDropoutNormReLU(
+                (conv): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (norm): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+                (all_modules): Sequential(
+                  (0): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                  (1): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (2): LeakyReLU(negative_slope=0.01, inplace=True)
+                )
+              )
+              (conv2): ConvDropoutNormReLU(
+                (conv): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (norm): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                  (1): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+              (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+            )
+          )
+        )
+        (2): StackedResidualBlocks(
+          (blocks): Sequential(
+            (0): BasicBlockD(
+              (conv1): ConvDropoutNormReLU(
+                (conv): Conv3d(64, 128, kernel_size=(1, 3, 3), stride=(1, 2, 2), padding=(0, 1, 1))
+                (norm): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+                (all_modules): Sequential(
+                  (0): Conv3d(64, 128, kernel_size=(1, 3, 3), stride=(1, 2, 2), padding=(0, 1, 1))
+                  (1): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (2): LeakyReLU(negative_slope=0.01, inplace=True)
+                )
+              )
+              (conv2): ConvDropoutNormReLU(
+                (conv): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (norm): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                  (1): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+              (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+              (skip): Sequential(
+                (0): AvgPool3d(kernel_size=[1, 2, 2], stride=[1, 2, 2], padding=0)
+                (1): ConvDropoutNormReLU(
+                  (conv): Conv3d(64, 128, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+                  (norm): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (all_modules): Sequential(
+                    (0): Conv3d(64, 128, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+                    (1): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  )
+                )
+              )
+            )
+            (1): BasicBlockD(
+              (conv1): ConvDropoutNormReLU(
+                (conv): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (norm): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+                (all_modules): Sequential(
+                  (0): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                  (1): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (2): LeakyReLU(negative_slope=0.01, inplace=True)
+                )
+              )
+              (conv2): ConvDropoutNormReLU(
+                (conv): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (norm): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                  (1): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+              (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+            )
+          )
+        )
+        (3): StackedResidualBlocks(
+          (blocks): Sequential(
+            (0): BasicBlockD(
+              (conv1): ConvDropoutNormReLU(
+                (conv): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 2, 2), padding=(0, 1, 1))
+                (norm): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+                (all_modules): Sequential(
+                  (0): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 2, 2), padding=(0, 1, 1))
+                  (1): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (2): LeakyReLU(negative_slope=0.01, inplace=True)
+                )
+              )
+              (conv2): ConvDropoutNormReLU(
+                (conv): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (norm): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                  (1): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+              (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+              (skip): Sequential(
+                (0): AvgPool3d(kernel_size=[1, 2, 2], stride=[1, 2, 2], padding=0)
+              )
+            )
+            (1): BasicBlockD(
+              (conv1): ConvDropoutNormReLU(
+                (conv): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (norm): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+                (all_modules): Sequential(
+                  (0): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                  (1): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (2): LeakyReLU(negative_slope=0.01, inplace=True)
+                )
+              )
+              (conv2): ConvDropoutNormReLU(
+                (conv): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (norm): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                  (1): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+              (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+            )
+          )
+        )
+        (4): StackedResidualBlocks(
+          (blocks): Sequential(
+            (0): BasicBlockD(
+              (conv1): ConvDropoutNormReLU(
+                (conv): Conv3d(128, 64, kernel_size=(1, 3, 3), stride=(1, 2, 2), padding=(0, 1, 1))
+                (norm): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+                (all_modules): Sequential(
+                  (0): Conv3d(128, 64, kernel_size=(1, 3, 3), stride=(1, 2, 2), padding=(0, 1, 1))
+                  (1): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (2): LeakyReLU(negative_slope=0.01, inplace=True)
+                )
+              )
+              (conv2): ConvDropoutNormReLU(
+                (conv): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (norm): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                  (1): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+              (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+              (skip): Sequential(
+                (0): AvgPool3d(kernel_size=[1, 2, 2], stride=[1, 2, 2], padding=0)
+                (1): ConvDropoutNormReLU(
+                  (conv): Conv3d(128, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+                  (norm): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (all_modules): Sequential(
+                    (0): Conv3d(128, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+                    (1): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  )
+                )
+              )
+            )
+            (1): BasicBlockD(
+              (conv1): ConvDropoutNormReLU(
+                (conv): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (norm): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+                (all_modules): Sequential(
+                  (0): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                  (1): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (2): LeakyReLU(negative_slope=0.01, inplace=True)
+                )
+              )
+              (conv2): ConvDropoutNormReLU(
+                (conv): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (norm): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                  (1): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+              (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+            )
+          )
+        )
+        (5): StackedResidualBlocks(
+          (blocks): Sequential(
+            (0): BasicBlockD(
+              (conv1): ConvDropoutNormReLU(
+                (conv): Conv3d(64, 32, kernel_size=(1, 3, 3), stride=(1, 2, 2), padding=(0, 1, 1))
+                (norm): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+                (all_modules): Sequential(
+                  (0): Conv3d(64, 32, kernel_size=(1, 3, 3), stride=(1, 2, 2), padding=(0, 1, 1))
+                  (1): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (2): LeakyReLU(negative_slope=0.01, inplace=True)
+                )
+              )
+              (conv2): ConvDropoutNormReLU(
+                (conv): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (norm): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                  (1): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+              (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+              (skip): Sequential(
+                (0): AvgPool3d(kernel_size=[1, 2, 2], stride=[1, 2, 2], padding=0)
+                (1): ConvDropoutNormReLU(
+                  (conv): Conv3d(64, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+                  (norm): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (all_modules): Sequential(
+                    (0): Conv3d(64, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+                    (1): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  )
+                )
+              )
+            )
+            (1): BasicBlockD(
+              (conv1): ConvDropoutNormReLU(
+                (conv): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (norm): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+                (all_modules): Sequential(
+                  (0): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                  (1): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (2): LeakyReLU(negative_slope=0.01, inplace=True)
+                )
+              )
+              (conv2): ConvDropoutNormReLU(
+                (conv): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (norm): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                  (1): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+              (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+            )
+          )
+        )
+      )
+      (mamba_layers): ModuleList(
+        (0): MambaLayer(
+          (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+          (mamba): Mamba(
+            (in_proj): Linear(in_features=32, out_features=128, bias=False)
+            (conv1d): Conv1d(64, 64, kernel_size=(4,), stride=(1,), padding=(3,), groups=64)
+            (act): SiLU()
+            (x_proj): Linear(in_features=64, out_features=34, bias=False)
+            (dt_proj): Linear(in_features=2, out_features=64, bias=True)
+            (out_proj): Linear(in_features=64, out_features=32, bias=False)
+          )
+        )
+        (1): MambaLayer(
+          (norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          (mamba): Mamba(
+            (in_proj): Linear(in_features=64, out_features=256, bias=False)
+            (conv1d): Conv1d(128, 128, kernel_size=(4,), stride=(1,), padding=(3,), groups=128)
+            (act): SiLU()
+            (x_proj): Linear(in_features=128, out_features=36, bias=False)
+            (dt_proj): Linear(in_features=4, out_features=128, bias=True)
+            (out_proj): Linear(in_features=128, out_features=64, bias=False)
+          )
+        )
+        (2-3): 2 x MambaLayer(
+          (norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+          (mamba): Mamba(
+            (in_proj): Linear(in_features=128, out_features=512, bias=False)
+            (conv1d): Conv1d(256, 256, kernel_size=(4,), stride=(1,), padding=(3,), groups=256)
+            (act): SiLU()
+            (x_proj): Linear(in_features=256, out_features=40, bias=False)
+            (dt_proj): Linear(in_features=8, out_features=256, bias=True)
+            (out_proj): Linear(in_features=256, out_features=128, bias=False)
+          )
+        )
+        (4): MambaLayer(
+          (norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          (mamba): Mamba(
+            (in_proj): Linear(in_features=64, out_features=256, bias=False)
+            (conv1d): Conv1d(128, 128, kernel_size=(4,), stride=(1,), padding=(3,), groups=128)
+            (act): SiLU()
+            (x_proj): Linear(in_features=128, out_features=36, bias=False)
+            (dt_proj): Linear(in_features=4, out_features=128, bias=True)
+            (out_proj): Linear(in_features=128, out_features=64, bias=False)
+          )
+        )
+        (5): MambaLayer(
+          (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+          (mamba): Mamba(
+            (in_proj): Linear(in_features=32, out_features=128, bias=False)
+            (conv1d): Conv1d(64, 64, kernel_size=(4,), stride=(1,), padding=(3,), groups=64)
+            (act): SiLU()
+            (x_proj): Linear(in_features=64, out_features=34, bias=False)
+            (dt_proj): Linear(in_features=2, out_features=64, bias=True)
+            (out_proj): Linear(in_features=64, out_features=32, bias=False)
+          )
+        )
+      )
+    )
+    (stages): ModuleList(
+      (0): StackedResidualBlocks(
+        (blocks): Sequential(
+          (0): BasicBlockD(
+            (conv1): ConvDropoutNormReLU(
+              (conv): Conv3d(128, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+              (all_modules): Sequential(
+                (0): Conv3d(128, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (2): LeakyReLU(negative_slope=0.01, inplace=True)
+              )
+            )
+            (conv2): ConvDropoutNormReLU(
+              (conv): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (all_modules): Sequential(
+                (0): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              )
+            )
+            (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+            (skip): Sequential(
+              (0): ConvDropoutNormReLU(
+                (conv): Conv3d(128, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+                (norm): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(128, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+                  (1): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+            )
+          )
+          (1): BasicBlockD(
+            (conv1): ConvDropoutNormReLU(
+              (conv): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+              (all_modules): Sequential(
+                (0): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (2): LeakyReLU(negative_slope=0.01, inplace=True)
+              )
+            )
+            (conv2): ConvDropoutNormReLU(
+              (conv): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (all_modules): Sequential(
+                (0): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              )
+            )
+            (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+          )
+        )
+      )
+      (1-2): 2 x StackedResidualBlocks(
+        (blocks): Sequential(
+          (0): BasicBlockD(
+            (conv1): ConvDropoutNormReLU(
+              (conv): Conv3d(256, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+              (all_modules): Sequential(
+                (0): Conv3d(256, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (2): LeakyReLU(negative_slope=0.01, inplace=True)
+              )
+            )
+            (conv2): ConvDropoutNormReLU(
+              (conv): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (all_modules): Sequential(
+                (0): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              )
+            )
+            (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+            (skip): Sequential(
+              (0): ConvDropoutNormReLU(
+                (conv): Conv3d(256, 128, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+                (norm): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(256, 128, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+                  (1): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+            )
+          )
+          (1): BasicBlockD(
+            (conv1): ConvDropoutNormReLU(
+              (conv): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+              (all_modules): Sequential(
+                (0): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (2): LeakyReLU(negative_slope=0.01, inplace=True)
+              )
+            )
+            (conv2): ConvDropoutNormReLU(
+              (conv): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (all_modules): Sequential(
+                (0): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              )
+            )
+            (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+          )
+        )
+      )
+      (3): StackedResidualBlocks(
+        (blocks): Sequential(
+          (0): BasicBlockD(
+            (conv1): ConvDropoutNormReLU(
+              (conv): Conv3d(128, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+              (all_modules): Sequential(
+                (0): Conv3d(128, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (2): LeakyReLU(negative_slope=0.01, inplace=True)
+              )
+            )
+            (conv2): ConvDropoutNormReLU(
+              (conv): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (all_modules): Sequential(
+                (0): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              )
+            )
+            (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+            (skip): Sequential(
+              (0): ConvDropoutNormReLU(
+                (conv): Conv3d(128, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+                (norm): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(128, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+                  (1): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+            )
+          )
+          (1): BasicBlockD(
+            (conv1): ConvDropoutNormReLU(
+              (conv): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+              (all_modules): Sequential(
+                (0): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (2): LeakyReLU(negative_slope=0.01, inplace=True)
+              )
+            )
+            (conv2): ConvDropoutNormReLU(
+              (conv): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (all_modules): Sequential(
+                (0): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              )
+            )
+            (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+          )
+        )
+      )
+      (4): StackedResidualBlocks(
+        (blocks): Sequential(
+          (0): BasicBlockD(
+            (conv1): ConvDropoutNormReLU(
+              (conv): Conv3d(64, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+              (all_modules): Sequential(
+                (0): Conv3d(64, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (2): LeakyReLU(negative_slope=0.01, inplace=True)
+              )
+            )
+            (conv2): ConvDropoutNormReLU(
+              (conv): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (all_modules): Sequential(
+                (0): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              )
+            )
+            (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+            (skip): Sequential(
+              (0): ConvDropoutNormReLU(
+                (conv): Conv3d(64, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+                (norm): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(64, 32, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+                  (1): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+            )
+          )
+          (1): BasicBlockD(
+            (conv1): ConvDropoutNormReLU(
+              (conv): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+              (all_modules): Sequential(
+                (0): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (2): LeakyReLU(negative_slope=0.01, inplace=True)
+              )
+            )
+            (conv2): ConvDropoutNormReLU(
+              (conv): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+              (norm): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              (all_modules): Sequential(
+                (0): Conv3d(32, 32, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+                (1): InstanceNorm3d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+              )
+            )
+            (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+          )
+        )
+      )
+    )
+    (transpconvs): ModuleList(
+      (0): ConvTranspose3d(32, 64, kernel_size=(1, 2, 2), stride=(1, 2, 2))
+      (1): ConvTranspose3d(64, 128, kernel_size=(1, 2, 2), stride=(1, 2, 2))
+      (2): ConvTranspose3d(128, 128, kernel_size=(1, 2, 2), stride=(1, 2, 2))
+      (3): ConvTranspose3d(128, 64, kernel_size=(1, 2, 2), stride=(1, 2, 2))
+      (4): ConvTranspose3d(64, 32, kernel_size=(1, 2, 2), stride=(1, 2, 2))
+    )
+    (lzz_layers): ModuleList(
+      (0): ModuleList(
+        (0): StackedResidualBlocks(
+          (blocks): Sequential(
+            (0): BasicBlockD(
+              (conv1): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(2, 2, 2), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(2, 2, 2), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (2): LeakyReLU(negative_slope=0.01, inplace=True)
+                )
+              )
+              (conv2): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+              (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+              (skip): Sequential(
+                (0): AvgPool3d(kernel_size=(2, 2, 2), stride=(2, 2, 2), padding=0)
+              )
+            )
+            (1): BasicBlockD(
+              (conv1): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (2): LeakyReLU(negative_slope=0.01, inplace=True)
+                )
+              )
+              (conv2): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+              (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+            )
+          )
+        )
+        (1-2): 2 x StackedResidualBlocks(
+          (blocks): Sequential(
+            (0): BasicBlockD(
+              (conv1): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(2, 1, 1), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(2, 1, 1), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (2): LeakyReLU(negative_slope=0.01, inplace=True)
+                )
+              )
+              (conv2): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+              (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+              (skip): Sequential(
+                (0): AvgPool3d(kernel_size=(2, 1, 1), stride=(2, 1, 1), padding=0)
+              )
+            )
+            (1): BasicBlockD(
+              (conv1): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (2): LeakyReLU(negative_slope=0.01, inplace=True)
+                )
+              )
+              (conv2): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+              (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+            )
+          )
+        )
+      )
+      (1): ModuleList(
+        (0-1): 2 x StackedResidualBlocks(
+          (blocks): Sequential(
+            (0): BasicBlockD(
+              (conv1): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(2, 2, 2), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(2, 2, 2), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (2): LeakyReLU(negative_slope=0.01, inplace=True)
+                )
+              )
+              (conv2): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+              (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+              (skip): Sequential(
+                (0): AvgPool3d(kernel_size=(2, 2, 2), stride=(2, 2, 2), padding=0)
+              )
+            )
+            (1): BasicBlockD(
+              (conv1): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (2): LeakyReLU(negative_slope=0.01, inplace=True)
+                )
+              )
+              (conv2): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+              (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+            )
+          )
+        )
+        (2-3): 2 x StackedResidualBlocks(
+          (blocks): Sequential(
+            (0): BasicBlockD(
+              (conv1): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(2, 1, 1), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(2, 1, 1), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (2): LeakyReLU(negative_slope=0.01, inplace=True)
+                )
+              )
+              (conv2): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+              (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+              (skip): Sequential(
+                (0): AvgPool3d(kernel_size=(2, 1, 1), stride=(2, 1, 1), padding=0)
+              )
+            )
+            (1): BasicBlockD(
+              (conv1): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (2): LeakyReLU(negative_slope=0.01, inplace=True)
+                )
+              )
+              (conv2): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+              (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+            )
+          )
+        )
+      )
+      (2): ModuleList(
+        (0-2): 3 x StackedResidualBlocks(
+          (blocks): Sequential(
+            (0): BasicBlockD(
+              (conv1): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(2, 2, 2), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(2, 2, 2), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (2): LeakyReLU(negative_slope=0.01, inplace=True)
+                )
+              )
+              (conv2): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+              (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+              (skip): Sequential(
+                (0): AvgPool3d(kernel_size=(2, 2, 2), stride=(2, 2, 2), padding=0)
+              )
+            )
+            (1): BasicBlockD(
+              (conv1): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (2): LeakyReLU(negative_slope=0.01, inplace=True)
+                )
+              )
+              (conv2): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+              (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+            )
+          )
+        )
+        (3): StackedResidualBlocks(
+          (blocks): Sequential(
+            (0): BasicBlockD(
+              (conv1): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(2, 1, 1), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(2, 1, 1), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (2): LeakyReLU(negative_slope=0.01, inplace=True)
+                )
+              )
+              (conv2): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+              (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+              (skip): Sequential(
+                (0): AvgPool3d(kernel_size=(2, 1, 1), stride=(2, 1, 1), padding=0)
+              )
+            )
+            (1): BasicBlockD(
+              (conv1): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (2): LeakyReLU(negative_slope=0.01, inplace=True)
+                )
+              )
+              (conv2): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+              (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+            )
+          )
+        )
+      )
+      (3): ModuleList(
+        (0-2): 3 x StackedResidualBlocks(
+          (blocks): Sequential(
+            (0): BasicBlockD(
+              (conv1): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(2, 2, 2), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(2, 2, 2), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (2): LeakyReLU(negative_slope=0.01, inplace=True)
+                )
+              )
+              (conv2): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+              (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+              (skip): Sequential(
+                (0): AvgPool3d(kernel_size=(2, 2, 2), stride=(2, 2, 2), padding=0)
+              )
+            )
+            (1): BasicBlockD(
+              (conv1): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (2): LeakyReLU(negative_slope=0.01, inplace=True)
+                )
+              )
+              (conv2): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+              (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+            )
+          )
+        )
+        (3): StackedResidualBlocks(
+          (blocks): Sequential(
+            (0): BasicBlockD(
+              (conv1): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 2, 2), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 2, 2), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (2): LeakyReLU(negative_slope=0.01, inplace=True)
+                )
+              )
+              (conv2): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+              (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+              (skip): Sequential(
+                (0): AvgPool3d(kernel_size=(1, 2, 2), stride=(1, 2, 2), padding=0)
+              )
+            )
+            (1): BasicBlockD(
+              (conv1): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (2): LeakyReLU(negative_slope=0.01, inplace=True)
+                )
+              )
+              (conv2): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+              (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+            )
+          )
+        )
+      )
+      (4): ModuleList(
+        (0-1): 2 x StackedResidualBlocks(
+          (blocks): Sequential(
+            (0): BasicBlockD(
+              (conv1): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(2, 2, 2), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(2, 2, 2), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (2): LeakyReLU(negative_slope=0.01, inplace=True)
+                )
+              )
+              (conv2): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+              (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+              (skip): Sequential(
+                (0): AvgPool3d(kernel_size=(2, 2, 2), stride=(2, 2, 2), padding=0)
+              )
+            )
+            (1): BasicBlockD(
+              (conv1): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (2): LeakyReLU(negative_slope=0.01, inplace=True)
+                )
+              )
+              (conv2): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+              (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+            )
+          )
+        )
+        (2-4): 3 x StackedResidualBlocks(
+          (blocks): Sequential(
+            (0): BasicBlockD(
+              (conv1): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 2, 2), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 2, 2), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (2): LeakyReLU(negative_slope=0.01, inplace=True)
+                )
+              )
+              (conv2): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+              (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+              (skip): Sequential(
+                (0): AvgPool3d(kernel_size=(1, 2, 2), stride=(1, 2, 2), padding=0)
+              )
+            )
+            (1): BasicBlockD(
+              (conv1): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (nonlin): LeakyReLU(negative_slope=0.01, inplace=True)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                  (2): LeakyReLU(negative_slope=0.01, inplace=True)
+                )
+              )
+              (conv2): ConvDropoutNormReLU(
+                (conv): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                (norm): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                (all_modules): Sequential(
+                  (0): Conv3d(40, 40, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+                  (1): InstanceNorm3d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=False)
+                )
+              )
+              (nonlin2): LeakyReLU(negative_slope=0.01, inplace=True)
+            )
+          )
+        )
+      )
+    )
+    (lzz_fc): ModuleList(
+      (0-4): 5 x ModuleList(
+        (0): Sequential(
+          (0): Linear(in_features=288, out_features=72, bias=True)
+          (1): Tanh()
+        )
+        (1): Sequential(
+          (0): Linear(in_features=72, out_features=18, bias=True)
+          (1): Tanh()
+        )
+        (2): Sequential(
+          (0): Linear(in_features=18, out_features=1, bias=True)
+          (1): Tanh()
+        )
+      )
+    )
+  )
+)
+
+This is the configuration used by this training:
+Configuration name: 3d_fullres
+ {'data_identifier': 'nnUNetPlans_3d_fullres', 'preprocessor_name': 'DefaultPreprocessor', 'batch_size': 2, 'patch_size': [40, 192, 192], 'median_image_size_in_voxels': [97.0, 512.0, 512.0], 'spacing': [2.5, 0.7958984971046448, 0.7958984971046448], 'normalization_schemes': ['CTNormalization'], 'use_mask_for_norm': [False], 'UNet_class_name': 'PlainConvUNet', 'UNet_base_num_features': 32, 'n_conv_per_stage_encoder': [2, 2, 2, 2, 2, 2], 'n_conv_per_stage_decoder': [2, 2, 2, 2, 2], 'num_pool_per_axis': [3, 5, 5], 'pool_op_kernel_sizes': [[1, 1, 1], [1, 2, 2], [1, 2, 2], [1, 2, 2], [1, 2, 2], [1, 2, 2]], 'conv_kernel_sizes': [[1, 3, 3], [1, 3, 3], [1, 3, 3], [1, 3, 3], [1, 3, 3], [1, 3, 3]], 'unet_max_num_features': 320, 'resampling_fn_data': 'resample_data_or_seg_to_shape', 'resampling_fn_seg': 'resample_data_or_seg_to_shape', 'resampling_fn_data_kwargs': {'is_seg': False, 'order': 3, 'order_z': 0, 'force_separate_z': None}, 'resampling_fn_seg_kwargs': {'is_seg': True, 'order': 1, 'order_z': 0, 'force_separate_z': None}, 'resampling_fn_probabilities': 'resample_data_or_seg_to_shape', 'resampling_fn_probabilities_kwargs': {'is_seg': False, 'order': 1, 'order_z': 0, 'force_separate_z': None}, 'batch_dice': True} 
+
+These are the global plan.json settings:
+ {'dataset_name': 'Dataset701_AbdomenCT', 'plans_name': 'nnUNetPlans', 'original_median_spacing_after_transp': [2.5, 0.7958984971046448, 0.7958984971046448], 'original_median_shape_after_transp': [97, 512, 512], 'image_reader_writer': 'SimpleITKIO', 'transpose_forward': [0, 1, 2], 'transpose_backward': [0, 1, 2], 'experiment_planner_used': 'ExperimentPlanner', 'label_manager': 'LabelManager', 'foreground_intensity_properties_per_channel': {'0': {'max': 3071.0, 'mean': 97.29716491699219, 'median': 118.0, 'min': -1024.0, 'percentile_00_5': -958.0, 'percentile_99_5': 270.0, 'std': 137.8484649658203}}} 
+
+2024-06-27 15:50:43.899441: unpacking dataset...
+2024-06-27 15:50:43.899809: unpacking done...
+2024-06-27 15:50:43.900508: do_dummy_2d_data_aug: False
+2024-06-27 15:50:43.913346: Unable to plot network architecture:
+2024-06-27 15:50:43.913744: No module named 'hiddenlayer'
+2024-06-27 15:50:43.924348: 
+2024-06-27 15:50:43.924939: Epoch 0
+2024-06-27 15:50:43.925597: Current learning rate: 0.001
+using pin_memory on device 0
+using pin_memory on device 0
+2024-06-27 15:51:57.773366: meanmse:       0.12058434
+2024-06-27 15:51:57.775423: meanr2:        -0.005868955010169693
+2024-06-27 15:51:57.776515: train_loss 3.1291
+2024-06-27 15:51:57.777144: val_loss 2.5077
+2024-06-27 15:51:57.777721: Pseudo dice [0.5]
+2024-06-27 15:51:57.778367: Epoch time: 73.86 s
+2024-06-27 15:51:57.779139: Yayy! New best R2: -0.0059
+2024-06-27 15:51:59.991233: 
+2024-06-27 15:51:59.991835: Epoch 1
+2024-06-27 15:51:59.992291: Current learning rate: 0.00099
+2024-06-27 15:53:01.770976: meanmse:       0.12466755
+2024-06-27 15:53:01.772318: meanr2:        -0.005719869043981574
+2024-06-27 15:53:01.772872: train_loss 2.54
+2024-06-27 15:53:01.773320: val_loss 2.5401
+2024-06-27 15:53:01.773782: Pseudo dice [0.5]
+2024-06-27 15:53:01.774223: Epoch time: 61.79 s
+2024-06-27 15:53:01.774646: Yayy! New best R2: -0.0057
+2024-06-27 15:53:04.250533: 
+2024-06-27 15:53:04.251508: Epoch 2
+2024-06-27 15:53:04.252071: Current learning rate: 0.00098
+2024-06-27 15:54:06.494890: meanmse:       0.11751639
+2024-06-27 15:54:06.495873: meanr2:        0.019041807029604875
+2024-06-27 15:54:06.496296: train_loss 2.5369
+2024-06-27 15:54:06.496634: val_loss 2.4747
+2024-06-27 15:54:06.496959: Pseudo dice [0.5]
+2024-06-27 15:54:06.497314: Epoch time: 62.25 s
+2024-06-27 15:54:06.497645: Yayy! New best R2: 0.019
+2024-06-27 15:54:08.949173: 
+2024-06-27 15:54:08.949929: Epoch 3
+2024-06-27 15:54:08.950492: Current learning rate: 0.00097
+2024-06-27 15:55:10.870274: meanmse:       0.123276286
+2024-06-27 15:55:10.871273: meanr2:        -0.0006664175587130657
+2024-06-27 15:55:10.871838: train_loss 2.4911
+2024-06-27 15:55:10.872293: val_loss 2.478
+2024-06-27 15:55:10.872669: Pseudo dice [0.5]
+2024-06-27 15:55:10.873043: Epoch time: 61.93 s
+2024-06-27 15:55:12.879744: 
+2024-06-27 15:55:12.880432: Epoch 4
+2024-06-27 15:55:12.880886: Current learning rate: 0.00096
+2024-06-27 15:56:14.884238: meanmse:       0.11101041
+2024-06-27 15:56:14.885174: meanr2:        0.11004657021902928
+2024-06-27 15:56:14.885596: train_loss 2.4645
+2024-06-27 15:56:14.885952: val_loss 2.3707
+2024-06-27 15:56:14.886275: Pseudo dice [0.5]
+2024-06-27 15:56:14.886613: Epoch time: 62.01 s
+2024-06-27 15:56:14.886970: Yayy! New best R2: 0.11
+2024-06-27 15:56:17.558551: 
+2024-06-27 15:56:17.559430: Epoch 5
+2024-06-27 15:56:17.560021: Current learning rate: 0.00095
+2024-06-27 15:57:19.532314: meanmse:       0.089227445
+2024-06-27 15:57:19.533678: meanr2:        0.28666780583913715
+2024-06-27 15:57:19.534526: train_loss 2.2806
+2024-06-27 15:57:19.535084: val_loss 2.164
+2024-06-27 15:57:19.535698: Pseudo dice [0.5]
+2024-06-27 15:57:19.536284: Epoch time: 61.98 s
+2024-06-27 15:57:19.536878: Yayy! New best R2: 0.2867
+2024-06-27 15:57:21.814911: 
+2024-06-27 15:57:21.815572: Epoch 6
+2024-06-27 15:57:21.816067: Current learning rate: 0.00095
+2024-06-27 15:58:23.815002: meanmse:       0.061908975
+2024-06-27 15:58:23.816068: meanr2:        0.4980915957451655
+2024-06-27 15:58:23.816629: train_loss 1.9944
+2024-06-27 15:58:23.817083: val_loss 1.8284
+2024-06-27 15:58:23.817657: Pseudo dice [0.5]
+2024-06-27 15:58:23.818324: Epoch time: 62.01 s
+2024-06-27 15:58:23.818896: Yayy! New best R2: 0.4981
+2024-06-27 15:58:26.653568: 
+2024-06-27 15:58:26.654429: Epoch 7
+2024-06-27 15:58:26.655008: Current learning rate: 0.00094
+2024-06-27 15:59:28.829105: meanmse:       0.057906333
+2024-06-27 15:59:28.830384: meanr2:        0.529128700438742
+2024-06-27 15:59:28.830947: train_loss 1.7564
+2024-06-27 15:59:28.831511: val_loss 1.6715
+2024-06-27 15:59:28.831973: Pseudo dice [0.5]
+2024-06-27 15:59:28.832453: Epoch time: 62.19 s
+2024-06-27 15:59:28.832952: Yayy! New best R2: 0.5291
+2024-06-27 15:59:31.344153: 
+2024-06-27 15:59:31.344956: Epoch 8
+2024-06-27 15:59:31.345408: Current learning rate: 0.00093
+2024-06-27 16:00:33.505300: meanmse:       0.056335617
+2024-06-27 16:00:33.506296: meanr2:        0.5448088240965553
+2024-06-27 16:00:33.506790: train_loss 1.4908
+2024-06-27 16:00:33.508109: val_loss 1.6385
+2024-06-27 16:00:33.508705: Pseudo dice [0.5]
+2024-06-27 16:00:33.509355: Epoch time: 62.17 s
+2024-06-27 16:00:33.510023: Yayy! New best R2: 0.5448
+2024-06-27 16:00:35.812283: 
+2024-06-27 16:00:35.812932: Epoch 9
+2024-06-27 16:00:35.813390: Current learning rate: 0.00092
+2024-06-27 16:01:37.950441: meanmse:       0.049085435
+2024-06-27 16:01:37.951543: meanr2:        0.6029419026683832
+2024-06-27 16:01:37.952117: train_loss 1.4081
+2024-06-27 16:01:37.952668: val_loss 1.4281
+2024-06-27 16:01:37.953093: Pseudo dice [0.5]
+2024-06-27 16:01:37.953513: Epoch time: 62.15 s
+2024-06-27 16:01:38.273036: Yayy! New best R2: 0.6029
+2024-06-27 16:01:40.569598: 
+2024-06-27 16:01:40.570279: Epoch 10
+2024-06-27 16:01:40.570762: Current learning rate: 0.00091
+2024-06-27 16:02:42.669908: meanmse:       0.0470159
+2024-06-27 16:02:42.671072: meanr2:        0.6203001509082114
+2024-06-27 16:02:42.671624: train_loss 1.2239
+2024-06-27 16:02:42.672113: val_loss 1.364
+2024-06-27 16:02:42.672580: Pseudo dice [0.5]
+2024-06-27 16:02:42.673054: Epoch time: 62.11 s
+2024-06-27 16:02:42.673524: Yayy! New best R2: 0.6203
+2024-06-27 16:02:45.009419: 
+2024-06-27 16:02:45.010022: Epoch 11
+2024-06-27 16:02:45.010457: Current learning rate: 0.0009
+2024-06-27 16:03:47.218618: meanmse:       0.035380803
+2024-06-27 16:03:47.219741: meanr2:        0.7199602442103014
+2024-06-27 16:03:47.220429: train_loss 1.1086
+2024-06-27 16:03:47.220938: val_loss 1.1052
+2024-06-27 16:03:47.221410: Pseudo dice [0.5]
+2024-06-27 16:03:47.221888: Epoch time: 62.22 s
+2024-06-27 16:03:47.222351: Yayy! New best R2: 0.72
+2024-06-27 16:03:49.863061: 
+2024-06-27 16:03:49.863996: Epoch 12
+2024-06-27 16:03:49.864535: Current learning rate: 0.00089
+2024-06-27 16:04:52.253156: meanmse:       0.03128819
+2024-06-27 16:04:52.254681: meanr2:        0.7472670012113977
+2024-06-27 16:04:52.255491: train_loss 1.0165
+2024-06-27 16:04:52.256057: val_loss 1.0303
+2024-06-27 16:04:52.256588: Pseudo dice [0.5]
+2024-06-27 16:04:52.257168: Epoch time: 62.4 s
+2024-06-27 16:04:52.257712: Yayy! New best R2: 0.7473
+2024-06-27 16:04:54.652918: 
+2024-06-27 16:04:54.653802: Epoch 13
+2024-06-27 16:04:54.654418: Current learning rate: 0.00088
+2024-06-27 16:05:56.790903: meanmse:       0.03172877
+2024-06-27 16:05:56.792063: meanr2:        0.7462290208003086
+2024-06-27 16:05:56.792547: train_loss 1.0107
+2024-06-27 16:05:56.792859: val_loss 1.0109
+2024-06-27 16:05:56.793181: Pseudo dice [0.5]
+2024-06-27 16:05:56.793620: Epoch time: 62.15 s
+2024-06-27 16:05:58.878194: 
+2024-06-27 16:05:58.878939: Epoch 14
+2024-06-27 16:05:58.879527: Current learning rate: 0.00087
+2024-06-27 16:07:00.940916: meanmse:       0.030114705
+2024-06-27 16:07:00.942271: meanr2:        0.7566766822757867
+2024-06-27 16:07:00.942915: train_loss 1.0462
+2024-06-27 16:07:00.943418: val_loss 0.9827
+2024-06-27 16:07:00.943976: Pseudo dice [0.5]
+2024-06-27 16:07:00.944537: Epoch time: 62.07 s
+2024-06-27 16:07:00.945010: Yayy! New best R2: 0.7567
+2024-06-27 16:07:03.633916: 
+2024-06-27 16:07:03.634700: Epoch 15
+2024-06-27 16:07:03.635134: Current learning rate: 0.00086
+2024-06-27 16:08:05.963732: meanmse:       0.03404348
+2024-06-27 16:08:05.964685: meanr2:        0.7239764570085483
+2024-06-27 16:08:05.965173: train_loss 1.0014
+2024-06-27 16:08:05.965607: val_loss 1.0525
+2024-06-27 16:08:05.966117: Pseudo dice [0.5]
+2024-06-27 16:08:05.966614: Epoch time: 62.34 s
+2024-06-27 16:08:07.959619: 
+2024-06-27 16:08:07.960345: Epoch 16
+2024-06-27 16:08:07.961028: Current learning rate: 0.00085
+2024-06-27 16:09:10.278414: meanmse:       0.024982918
+2024-06-27 16:09:10.279343: meanr2:        0.7963269948868372
+2024-06-27 16:09:10.279745: train_loss 0.988
+2024-06-27 16:09:10.280096: val_loss 0.8752
+2024-06-27 16:09:10.280422: Pseudo dice [0.5]
+2024-06-27 16:09:10.280753: Epoch time: 62.33 s
+2024-06-27 16:09:10.281081: Yayy! New best R2: 0.7963
+2024-06-27 16:09:12.570517: 
+2024-06-27 16:09:12.571452: Epoch 17
+2024-06-27 16:09:12.572022: Current learning rate: 0.00085
+2024-06-27 16:10:14.609158: meanmse:       0.033999376
+2024-06-27 16:10:14.610086: meanr2:        0.7219083664080452
+2024-06-27 16:10:14.610486: train_loss 0.9518
+2024-06-27 16:10:14.610834: val_loss 1.0393
+2024-06-27 16:10:14.611395: Pseudo dice [0.5]
+2024-06-27 16:10:14.611766: Epoch time: 62.05 s
+2024-06-27 16:10:16.985673: 
+2024-06-27 16:10:16.986705: Epoch 18
+2024-06-27 16:10:16.987329: Current learning rate: 0.00084
+2024-06-27 16:11:19.338651: meanmse:       0.032056753
+2024-06-27 16:11:19.339943: meanr2:        0.7378375755943466
+2024-06-27 16:11:19.340592: train_loss 0.8968
+2024-06-27 16:11:19.341120: val_loss 1.0069
+2024-06-27 16:11:19.341647: Pseudo dice [0.5]
+2024-06-27 16:11:19.342147: Epoch time: 62.36 s
+2024-06-27 16:11:21.359425: 
+2024-06-27 16:11:21.360141: Epoch 19
+2024-06-27 16:11:21.360614: Current learning rate: 0.00083
+2024-06-27 16:12:23.381026: meanmse:       0.027259713
+2024-06-27 16:12:23.382051: meanr2:        0.7738984937042325
+2024-06-27 16:12:23.382531: train_loss 0.8259
+2024-06-27 16:12:23.382903: val_loss 0.8724
+2024-06-27 16:12:23.383294: Pseudo dice [0.5]
+2024-06-27 16:12:23.383697: Epoch time: 62.03 s
+2024-06-27 16:12:25.615164: 
+2024-06-27 16:12:25.616078: Epoch 20
+2024-06-27 16:12:25.616637: Current learning rate: 0.00082
+2024-06-27 16:13:27.619142: meanmse:       0.033331744
+2024-06-27 16:13:27.620403: meanr2:        0.7328762199238675
+2024-06-27 16:13:27.620960: train_loss 0.8364
+2024-06-27 16:13:27.621365: val_loss 0.9953
+2024-06-27 16:13:27.621916: Pseudo dice [0.5]
+2024-06-27 16:13:27.622443: Epoch time: 62.01 s
+2024-06-27 16:13:29.943876: 
+2024-06-27 16:13:29.944575: Epoch 21
+2024-06-27 16:13:29.945091: Current learning rate: 0.00081
+2024-06-27 16:14:32.161210: meanmse:       0.027404094
+2024-06-27 16:14:32.162320: meanr2:        0.7768686947201485
+2024-06-27 16:14:32.162878: train_loss 0.8108
+2024-06-27 16:14:32.163303: val_loss 0.8915
+2024-06-27 16:14:32.163691: Pseudo dice [0.5]
+2024-06-27 16:14:32.164160: Epoch time: 62.23 s
+2024-06-27 16:14:34.193779: 
+2024-06-27 16:14:34.194585: Epoch 22
+2024-06-27 16:14:34.195307: Current learning rate: 0.0008
+2024-06-27 16:15:36.598682: meanmse:       0.025061158
+2024-06-27 16:15:36.599839: meanr2:        0.7959544817132396
+2024-06-27 16:15:36.600330: train_loss 0.838
+2024-06-27 16:15:36.600792: val_loss 0.8218
+2024-06-27 16:15:36.601250: Pseudo dice [0.5]
+2024-06-27 16:15:36.601704: Epoch time: 62.41 s
+2024-06-27 16:15:38.594736: 
+2024-06-27 16:15:38.595459: Epoch 23
+2024-06-27 16:15:38.595909: Current learning rate: 0.00079
+2024-06-27 16:16:41.093311: meanmse:       0.021953385
+2024-06-27 16:16:41.094460: meanr2:        0.8201081643334855
+2024-06-27 16:16:41.094961: train_loss 0.8104
+2024-06-27 16:16:41.095338: val_loss 0.7744
+2024-06-27 16:16:41.095763: Pseudo dice [0.5]
+2024-06-27 16:16:41.096202: Epoch time: 62.51 s
+2024-06-27 16:16:41.096610: Yayy! New best R2: 0.8201
+2024-06-27 16:16:43.649878: 
+2024-06-27 16:16:43.650670: Epoch 24
+2024-06-27 16:16:43.651137: Current learning rate: 0.00078
+2024-06-27 16:17:46.209336: meanmse:       0.02628742
+2024-06-27 16:17:46.212976: meanr2:        0.7896613827084162
+2024-06-27 16:17:46.213650: train_loss 0.7813
+2024-06-27 16:17:46.214400: val_loss 0.8546
+2024-06-27 16:17:46.215109: Pseudo dice [0.5]
+2024-06-27 16:17:46.227203: Epoch time: 62.57 s
+2024-06-27 16:17:48.256484: 
+2024-06-27 16:17:48.260464: Epoch 25
+2024-06-27 16:17:48.261086: Current learning rate: 0.00077
+2024-06-27 16:18:50.227149: meanmse:       0.033039685
+2024-06-27 16:18:50.228426: meanr2:        0.7335078625768514
+2024-06-27 16:18:50.229065: train_loss 0.7739
+2024-06-27 16:18:50.229599: val_loss 0.9753
+2024-06-27 16:18:50.230185: Pseudo dice [0.5]
+2024-06-27 16:18:50.230711: Epoch time: 61.98 s
+2024-06-27 16:18:52.256737: 
+2024-06-27 16:18:52.258032: Epoch 26
+2024-06-27 16:18:52.258914: Current learning rate: 0.00076
+2024-06-27 16:19:54.582737: meanmse:       0.03152104
+2024-06-27 16:19:54.583965: meanr2:        0.7413559964206452
+2024-06-27 16:19:54.584585: train_loss 0.7479
+2024-06-27 16:19:54.584996: val_loss 0.9427
+2024-06-27 16:19:54.585405: Pseudo dice [0.5]
+2024-06-27 16:19:54.585877: Epoch time: 62.34 s
+2024-06-27 16:19:56.548455: 
+2024-06-27 16:19:56.552632: Epoch 27
+2024-06-27 16:19:56.553212: Current learning rate: 0.00075
+2024-06-27 16:20:58.926106: meanmse:       0.026339589
+2024-06-27 16:20:58.927234: meanr2:        0.7865041347830665
+2024-06-27 16:20:58.927859: train_loss 0.7661
+2024-06-27 16:20:58.928307: val_loss 0.8525
+2024-06-27 16:20:58.928671: Pseudo dice [0.5]
+2024-06-27 16:20:58.929098: Epoch time: 62.39 s
+2024-06-27 16:21:00.913776: 
+2024-06-27 16:21:00.914561: Epoch 28
+2024-06-27 16:21:00.915089: Current learning rate: 0.00074
+2024-06-27 16:22:03.118578: meanmse:       0.026265567
+2024-06-27 16:22:03.119914: meanr2:        0.787162828507767
+2024-06-27 16:22:03.120502: train_loss 0.7881
+2024-06-27 16:22:03.121014: val_loss 0.8157
+2024-06-27 16:22:03.121495: Pseudo dice [0.5]
+2024-06-27 16:22:03.122012: Epoch time: 62.21 s
+2024-06-27 16:22:04.918260: 
+2024-06-27 16:22:04.919053: Epoch 29
+2024-06-27 16:22:04.919664: Current learning rate: 0.00073
+2024-06-27 16:23:07.175037: meanmse:       0.02217231
+2024-06-27 16:23:07.176048: meanr2:        0.8227379310482299
+2024-06-27 16:23:07.176551: train_loss 0.7312
+2024-06-27 16:23:07.176905: val_loss 0.7456
+2024-06-27 16:23:07.177245: Pseudo dice [0.5]
+2024-06-27 16:23:07.177576: Epoch time: 62.26 s
+2024-06-27 16:23:07.562275: Yayy! New best R2: 0.8227
+2024-06-27 16:23:10.186293: 
+2024-06-27 16:23:10.186954: Epoch 30
+2024-06-27 16:23:10.187464: Current learning rate: 0.00073
+2024-06-27 16:24:12.680727: meanmse:       0.018480966
+2024-06-27 16:24:12.682086: meanr2:        0.8432130700887405
+2024-06-27 16:24:12.682611: train_loss 0.7649
+2024-06-27 16:24:12.683081: val_loss 0.6987
+2024-06-27 16:24:12.683517: Pseudo dice [0.5]
+2024-06-27 16:24:12.683990: Epoch time: 62.5 s
+2024-06-27 16:24:12.684431: Yayy! New best R2: 0.8432
+2024-06-27 16:24:15.034104: 
+2024-06-27 16:24:15.039041: Epoch 31
+2024-06-27 16:24:15.041483: Current learning rate: 0.00072
+2024-06-27 16:25:17.865766: meanmse:       0.029089184
+2024-06-27 16:25:17.867332: meanr2:        0.7717348660357566
+2024-06-27 16:25:17.868021: train_loss 0.6824
+2024-06-27 16:25:17.868446: val_loss 0.8536
+2024-06-27 16:25:17.868824: Pseudo dice [0.5]
+2024-06-27 16:25:17.869298: Epoch time: 62.84 s
+2024-06-27 16:25:19.868140: 
+2024-06-27 16:25:19.869034: Epoch 32
+2024-06-27 16:25:19.869718: Current learning rate: 0.00071
+2024-06-27 16:26:22.113879: meanmse:       0.018560592
+2024-06-27 16:26:22.115193: meanr2:        0.8506060926824712
+2024-06-27 16:26:22.115760: train_loss 0.6517
+2024-06-27 16:26:22.116214: val_loss 0.6532
+2024-06-27 16:26:22.116756: Pseudo dice [0.5]
+2024-06-27 16:26:22.124159: Epoch time: 62.26 s
+2024-06-27 16:26:22.125900: Yayy! New best R2: 0.8506
+2024-06-27 16:26:24.496973: 
+2024-06-27 16:26:24.497656: Epoch 33
+2024-06-27 16:26:24.498129: Current learning rate: 0.0007
+2024-06-27 16:27:26.728844: meanmse:       0.022239955
+2024-06-27 16:27:26.730432: meanr2:        0.8215900085709837
+2024-06-27 16:27:26.731335: train_loss 0.588
+2024-06-27 16:27:26.731901: val_loss 0.7315
+2024-06-27 16:27:26.732502: Pseudo dice [0.5]
+2024-06-27 16:27:26.737034: Epoch time: 62.24 s
+2024-06-27 16:27:28.712289: 
+2024-06-27 16:27:28.712937: Epoch 34
+2024-06-27 16:27:28.713364: Current learning rate: 0.00069
+2024-06-27 16:28:30.934414: meanmse:       0.03324182
+2024-06-27 16:28:30.936927: meanr2:        0.730202361250743
+2024-06-27 16:28:30.937438: train_loss 0.6723
+2024-06-27 16:28:30.937939: val_loss 0.9231
+2024-06-27 16:28:30.938509: Pseudo dice [0.5]
+2024-06-27 16:28:30.938989: Epoch time: 62.23 s
+2024-06-27 16:28:32.935587: 
+2024-06-27 16:28:32.936287: Epoch 35
+2024-06-27 16:28:32.936747: Current learning rate: 0.00068
+2024-06-27 16:29:35.433456: meanmse:       0.022890681
+2024-06-27 16:29:35.434793: meanr2:        0.8157457195545249
+2024-06-27 16:29:35.435490: train_loss 0.6302
+2024-06-27 16:29:35.436070: val_loss 0.7445
+2024-06-27 16:29:35.442845: Pseudo dice [0.5]
+2024-06-27 16:29:35.449620: Epoch time: 62.51 s
+2024-06-27 16:29:37.894644: 
+2024-06-27 16:29:37.895350: Epoch 36
+2024-06-27 16:29:37.895862: Current learning rate: 0.00067
+2024-06-27 16:30:40.075071: meanmse:       0.026510477
+2024-06-27 16:30:40.076239: meanr2:        0.7856829136570163
+2024-06-27 16:30:40.077265: train_loss 0.6468
+2024-06-27 16:30:40.077771: val_loss 0.8127
+2024-06-27 16:30:40.078211: Pseudo dice [0.5]
+2024-06-27 16:30:40.078640: Epoch time: 62.19 s
+2024-06-27 16:30:42.159259: 
+2024-06-27 16:30:42.160212: Epoch 37
+2024-06-27 16:30:42.160759: Current learning rate: 0.00066
+2024-06-27 16:31:44.606646: meanmse:       0.027776824
+2024-06-27 16:31:44.607572: meanr2:        0.7746868192400952
+2024-06-27 16:31:44.608004: train_loss 0.6996
+2024-06-27 16:31:44.608348: val_loss 0.8152
+2024-06-27 16:31:44.608779: Pseudo dice [0.5]
+2024-06-27 16:31:44.609300: Epoch time: 62.46 s
+2024-06-27 16:31:46.642071: 
+2024-06-27 16:31:46.642846: Epoch 38
+2024-06-27 16:31:46.643418: Current learning rate: 0.00065
+2024-06-27 16:32:48.839975: meanmse:       0.020089697
+2024-06-27 16:32:48.841117: meanr2:        0.8324888746231459
+2024-06-27 16:32:48.841564: train_loss 0.609
+2024-06-27 16:32:48.841968: val_loss 0.6505
+2024-06-27 16:32:48.842334: Pseudo dice [0.5]
+2024-06-27 16:32:48.842736: Epoch time: 62.21 s
+2024-06-27 16:32:50.890347: 
+2024-06-27 16:32:50.891143: Epoch 39
+2024-06-27 16:32:50.891653: Current learning rate: 0.00064
+2024-06-27 16:33:53.013140: meanmse:       0.025273316
+2024-06-27 16:33:53.014283: meanr2:        0.7943874818621018
+2024-06-27 16:33:53.014863: train_loss 0.5997
+2024-06-27 16:33:53.015338: val_loss 0.7344
+2024-06-27 16:33:53.015791: Pseudo dice [0.5]
+2024-06-27 16:33:53.016248: Epoch time: 62.13 s
+2024-06-27 16:33:55.492849: 
+2024-06-27 16:33:55.493666: Epoch 40
+2024-06-27 16:33:55.494176: Current learning rate: 0.00063
+2024-06-27 16:34:57.562400: meanmse:       0.021764956
+2024-06-27 16:34:57.563511: meanr2:        0.8222528234101737
+2024-06-27 16:34:57.564005: train_loss 0.6159
+2024-06-27 16:34:57.564384: val_loss 0.6893
+2024-06-27 16:34:57.564748: Pseudo dice [0.5]
+2024-06-27 16:34:57.565131: Epoch time: 62.08 s
+2024-06-27 16:34:59.578326: 
+2024-06-27 16:34:59.579071: Epoch 41
+2024-06-27 16:34:59.579643: Current learning rate: 0.00062
+2024-06-27 16:36:02.038829: meanmse:       0.022314329
+2024-06-27 16:36:02.041656: meanr2:        0.8217897067542431
+2024-06-27 16:36:02.044402: train_loss 0.5753
+2024-06-27 16:36:02.053319: val_loss 0.6792
+2024-06-27 16:36:02.053931: Pseudo dice [0.5]
+2024-06-27 16:36:02.055211: Epoch time: 62.47 s
+2024-06-27 16:36:04.359863: 
+2024-06-27 16:36:04.360729: Epoch 42
+2024-06-27 16:36:04.361341: Current learning rate: 0.00061
+2024-06-27 16:37:06.632406: meanmse:       0.017353062
+2024-06-27 16:37:06.633603: meanr2:        0.8581904157988856
+2024-06-27 16:37:06.634200: train_loss 0.6099
+2024-06-27 16:37:06.634726: val_loss 0.5931
+2024-06-27 16:37:06.636307: Pseudo dice [0.5]
+2024-06-27 16:37:06.637025: Epoch time: 62.29 s
+2024-06-27 16:37:06.637554: Yayy! New best R2: 0.8582
+2024-06-27 16:37:08.967547: 
+2024-06-27 16:37:08.968273: Epoch 43
+2024-06-27 16:37:08.968765: Current learning rate: 0.0006
+2024-06-27 16:38:11.477879: meanmse:       0.020166125
+2024-06-27 16:38:11.479022: meanr2:        0.8364263874460132
+2024-06-27 16:38:11.479541: train_loss 0.6173
+2024-06-27 16:38:11.480032: val_loss 0.6521
+2024-06-27 16:38:11.480487: Pseudo dice [0.5]
+2024-06-27 16:38:11.480940: Epoch time: 62.52 s
+2024-06-27 16:38:13.465370: 
+2024-06-27 16:38:13.466176: Epoch 44
+2024-06-27 16:38:13.466680: Current learning rate: 0.00059
+2024-06-27 16:39:15.693651: meanmse:       0.023691552
+2024-06-27 16:39:15.694593: meanr2:        0.804582705817175
+2024-06-27 16:39:15.695010: train_loss 0.5711
+2024-06-27 16:39:15.695347: val_loss 0.6862
+2024-06-27 16:39:15.695713: Pseudo dice [0.5]
+2024-06-27 16:39:15.696266: Epoch time: 62.24 s
+2024-06-27 16:39:17.944937: 
+2024-06-27 16:39:17.945788: Epoch 45
+2024-06-27 16:39:17.946333: Current learning rate: 0.00058
+2024-06-27 16:40:20.167480: meanmse:       0.018771268
+2024-06-27 16:40:20.168827: meanr2:        0.8493333426322255
+2024-06-27 16:40:20.173655: train_loss 0.547
+2024-06-27 16:40:20.180661: val_loss 0.6149
+2024-06-27 16:40:20.181274: Pseudo dice [0.5]
+2024-06-27 16:40:20.181794: Epoch time: 62.24 s
+2024-06-27 16:40:22.214228: 
+2024-06-27 16:40:22.214880: Epoch 46
+2024-06-27 16:40:22.215420: Current learning rate: 0.00057
+2024-06-27 16:41:24.251432: meanmse:       0.024929594
+2024-06-27 16:41:24.252504: meanr2:        0.7949260178200857
+2024-06-27 16:41:24.253015: train_loss 0.5922
+2024-06-27 16:41:24.253431: val_loss 0.7243
+2024-06-27 16:41:24.253860: Pseudo dice [0.5]
+2024-06-27 16:41:24.254283: Epoch time: 62.05 s
+2024-06-27 16:41:26.282243: 
+2024-06-27 16:41:26.282892: Epoch 47
+2024-06-27 16:41:26.283342: Current learning rate: 0.00056
+2024-06-27 16:42:28.507042: meanmse:       0.019719405
+2024-06-27 16:42:28.509048: meanr2:        0.8369106749447248
+2024-06-27 16:42:28.509590: train_loss 0.5666
+2024-06-27 16:42:28.510045: val_loss 0.6263
+2024-06-27 16:42:28.510468: Pseudo dice [0.5]
+2024-06-27 16:42:28.510917: Epoch time: 62.23 s
+2024-06-27 16:42:30.675985: 
+2024-06-27 16:42:30.676675: Epoch 48
+2024-06-27 16:42:30.677182: Current learning rate: 0.00056
+2024-06-27 16:43:32.874885: meanmse:       0.016776312
+2024-06-27 16:43:32.875939: meanr2:        0.863041053158224
+2024-06-27 16:43:32.876443: train_loss 0.5589
+2024-06-27 16:43:32.876831: val_loss 0.5654
+2024-06-27 16:43:32.877228: Pseudo dice [0.5]
+2024-06-27 16:43:32.877649: Epoch time: 62.21 s
+2024-06-27 16:43:32.878052: Yayy! New best R2: 0.863
+2024-06-27 16:43:35.340843: 
+2024-06-27 16:43:35.341923: Epoch 49
+2024-06-27 16:43:35.342789: Current learning rate: 0.00055
+2024-06-27 16:44:38.175056: meanmse:       0.022181025
+2024-06-27 16:44:38.176243: meanr2:        0.8180783321950159
+2024-06-27 16:44:38.176686: train_loss 0.5183
+2024-06-27 16:44:38.177065: val_loss 0.6616
+2024-06-27 16:44:38.177414: Pseudo dice [0.5]
+2024-06-27 16:44:38.177809: Epoch time: 62.84 s
+2024-06-27 16:44:40.508354: 
+2024-06-27 16:44:40.508907: Epoch 50
+2024-06-27 16:44:40.509347: Current learning rate: 0.00054
+2024-06-27 16:45:42.850285: meanmse:       0.016292887
+2024-06-27 16:45:42.851813: meanr2:        0.8664163170083549
+2024-06-27 16:45:42.852473: train_loss 0.5199
+2024-06-27 16:45:42.853026: val_loss 0.5768
+2024-06-27 16:45:42.853779: Pseudo dice [0.5]
+2024-06-27 16:45:42.854368: Epoch time: 62.35 s
+2024-06-27 16:45:42.854957: Yayy! New best R2: 0.8664
+2024-06-27 16:45:45.058807: 
+2024-06-27 16:45:45.060456: Epoch 51
+2024-06-27 16:45:45.061554: Current learning rate: 0.00053
+2024-06-27 16:46:47.137777: meanmse:       0.020875204
+2024-06-27 16:46:47.139335: meanr2:        0.8281774982567757
+2024-06-27 16:46:47.139929: train_loss 0.5346
+2024-06-27 16:46:47.140359: val_loss 0.6367
+2024-06-27 16:46:47.140758: Pseudo dice [0.5]
+2024-06-27 16:46:47.141234: Epoch time: 62.09 s
+2024-06-27 16:46:48.970197: 
+2024-06-27 16:46:48.971093: Epoch 52
+2024-06-27 16:46:48.971597: Current learning rate: 0.00052
+2024-06-27 16:47:50.981226: meanmse:       0.026106058
+2024-06-27 16:47:50.982478: meanr2:        0.78763299923449
+2024-06-27 16:47:50.983004: train_loss 0.5096
+2024-06-27 16:47:50.983447: val_loss 0.7374
+2024-06-27 16:47:50.983924: Pseudo dice [0.5]
+2024-06-27 16:47:50.984429: Epoch time: 62.02 s
+2024-06-27 16:47:53.170034: 
+2024-06-27 16:47:53.171062: Epoch 53
+2024-06-27 16:47:53.171608: Current learning rate: 0.00051
+2024-06-27 16:48:55.406199: meanmse:       0.024595903
+2024-06-27 16:48:55.407347: meanr2:        0.8060104994783525
+2024-06-27 16:48:55.407938: train_loss 0.6014
+2024-06-27 16:48:55.408517: val_loss 0.6694
+2024-06-27 16:48:55.409209: Pseudo dice [0.5]
+2024-06-27 16:48:55.409909: Epoch time: 62.25 s
+2024-06-27 16:48:57.317780: 
+2024-06-27 16:48:57.318746: Epoch 54
+2024-06-27 16:48:57.319369: Current learning rate: 0.0005
+2024-06-27 16:49:59.685616: meanmse:       0.021343492
+2024-06-27 16:49:59.686822: meanr2:        0.8304576346865272
+2024-06-27 16:49:59.687326: train_loss 0.5095
+2024-06-27 16:49:59.687732: val_loss 0.6386
+2024-06-27 16:49:59.688113: Pseudo dice [0.5]
+2024-06-27 16:49:59.688507: Epoch time: 62.38 s
+2024-06-27 16:50:01.571031: 
+2024-06-27 16:50:01.572009: Epoch 55
+2024-06-27 16:50:01.572572: Current learning rate: 0.00049
+2024-06-27 16:51:03.622971: meanmse:       0.019752521
+2024-06-27 16:51:03.624191: meanr2:        0.8380474106702469
+2024-06-27 16:51:03.624845: train_loss 0.5291
+2024-06-27 16:51:03.625347: val_loss 0.6072
+2024-06-27 16:51:03.625852: Pseudo dice [0.5]
+2024-06-27 16:51:03.626416: Epoch time: 62.06 s
+2024-06-27 16:51:06.253824: 
+2024-06-27 16:51:06.254863: Epoch 56
+2024-06-27 16:51:06.255452: Current learning rate: 0.00048
+2024-06-27 16:52:08.559743: meanmse:       0.022282647
+2024-06-27 16:52:08.561390: meanr2:        0.8163407013138427
+2024-06-27 16:52:08.562123: train_loss 0.517
+2024-06-27 16:52:08.562754: val_loss 0.6547
+2024-06-27 16:52:08.563450: Pseudo dice [0.5]
+2024-06-27 16:52:08.564088: Epoch time: 62.31 s
+2024-06-27 16:52:10.384009: 
+2024-06-27 16:52:10.384738: Epoch 57
+2024-06-27 16:52:10.385216: Current learning rate: 0.00047
+2024-06-27 16:53:12.364332: meanmse:       0.026622014
+2024-06-27 16:53:12.365428: meanr2:        0.7828638350709691
+2024-06-27 16:53:12.365961: train_loss 0.5219
+2024-06-27 16:53:12.366395: val_loss 0.7291
+2024-06-27 16:53:12.366910: Pseudo dice [0.5]
+2024-06-27 16:53:12.367381: Epoch time: 61.99 s
+2024-06-27 16:53:14.269174: 
+2024-06-27 16:53:14.269919: Epoch 58
+2024-06-27 16:53:14.270315: Current learning rate: 0.00046
+2024-06-27 16:54:16.434911: meanmse:       0.021254055
+2024-06-27 16:54:16.436001: meanr2:        0.8287474733391389
+2024-06-27 16:54:16.436598: train_loss 0.4945
+2024-06-27 16:54:16.437045: val_loss 0.647
+2024-06-27 16:54:16.437568: Pseudo dice [0.5]
+2024-06-27 16:54:16.438074: Epoch time: 62.17 s
+2024-06-27 16:54:18.619513: 
+2024-06-27 16:54:18.620761: Epoch 59
+2024-06-27 16:54:18.621437: Current learning rate: 0.00045
+2024-06-27 16:55:20.701685: meanmse:       0.02038176
+2024-06-27 16:55:20.703001: meanr2:        0.838846245584432
+2024-06-27 16:55:20.703555: train_loss 0.5174
+2024-06-27 16:55:20.704032: val_loss 0.6044
+2024-06-27 16:55:20.704458: Pseudo dice [0.5]
+2024-06-27 16:55:20.704913: Epoch time: 62.09 s
+2024-06-27 16:55:22.873631: 
+2024-06-27 16:55:22.874619: Epoch 60
+2024-06-27 16:55:22.875301: Current learning rate: 0.00044
+2024-06-27 16:56:25.030149: meanmse:       0.027312022
+2024-06-27 16:56:25.031405: meanr2:        0.7772250812919291
+2024-06-27 16:56:25.031960: train_loss 0.4869
+2024-06-27 16:56:25.032402: val_loss 0.7326
+2024-06-27 16:56:25.032853: Pseudo dice [0.5]
+2024-06-27 16:56:25.033340: Epoch time: 62.17 s
+2024-06-27 16:56:26.838414: 
+2024-06-27 16:56:26.839348: Epoch 61
+2024-06-27 16:56:26.839936: Current learning rate: 0.00043
+2024-06-27 16:57:28.843821: meanmse:       0.018638937
+2024-06-27 16:57:28.845091: meanr2:        0.8480564370857562
+2024-06-27 16:57:28.845768: train_loss 0.4916
+2024-06-27 16:57:28.846315: val_loss 0.5808
+2024-06-27 16:57:28.846833: Pseudo dice [0.5]
+2024-06-27 16:57:28.847353: Epoch time: 62.01 s
+2024-06-27 16:57:30.651276: 
+2024-06-27 16:57:30.652198: Epoch 62
+2024-06-27 16:57:30.652782: Current learning rate: 0.00042
+2024-06-27 16:58:32.543101: meanmse:       0.02156243
+2024-06-27 16:58:32.544395: meanr2:        0.8286682508431901
+2024-06-27 16:58:32.545065: train_loss 0.4664
+2024-06-27 16:58:32.545638: val_loss 0.6364
+2024-06-27 16:58:32.546121: Pseudo dice [0.5]
+2024-06-27 16:58:32.546644: Epoch time: 61.9 s
+2024-06-27 16:58:34.488365: 
+2024-06-27 16:58:34.489124: Epoch 63
+2024-06-27 16:58:34.489659: Current learning rate: 0.00041
+2024-06-27 16:59:36.337138: meanmse:       0.019846618
+2024-06-27 16:59:36.338528: meanr2:        0.8402086936136842
+2024-06-27 16:59:36.339280: train_loss 0.44
+2024-06-27 16:59:36.339817: val_loss 0.6013
+2024-06-27 16:59:36.340314: Pseudo dice [0.5]
+2024-06-27 16:59:36.340894: Epoch time: 61.86 s
+2024-06-27 16:59:38.271780: 
+2024-06-27 16:59:38.272532: Epoch 64
+2024-06-27 16:59:38.273024: Current learning rate: 0.0004
+2024-06-27 17:00:40.093755: meanmse:       0.029710518
+2024-06-27 17:00:40.094997: meanr2:        0.7514534993658809
+2024-06-27 17:00:40.095511: train_loss 0.5036
+2024-06-27 17:00:40.095926: val_loss 0.7706
+2024-06-27 17:00:40.096330: Pseudo dice [0.5]
+2024-06-27 17:00:40.096756: Epoch time: 61.83 s
+2024-06-27 17:00:41.989438: 
+2024-06-27 17:00:41.990168: Epoch 65
+2024-06-27 17:00:41.990722: Current learning rate: 0.00039
+2024-06-27 17:01:43.778075: meanmse:       0.02045726
+2024-06-27 17:01:43.779206: meanr2:        0.832473632856164
+2024-06-27 17:01:43.779775: train_loss 0.4662
+2024-06-27 17:01:43.780261: val_loss 0.6143
+2024-06-27 17:01:43.780717: Pseudo dice [0.5]
+2024-06-27 17:01:43.781177: Epoch time: 61.8 s
+2024-06-27 17:01:45.666563: 
+2024-06-27 17:01:45.667480: Epoch 66
+2024-06-27 17:01:45.668076: Current learning rate: 0.00038
+2024-06-27 17:02:47.693319: meanmse:       0.018006569
+2024-06-27 17:02:47.694644: meanr2:        0.8570693559138246
+2024-06-27 17:02:47.695264: train_loss 0.486
+2024-06-27 17:02:47.695745: val_loss 0.5435
+2024-06-27 17:02:47.696218: Pseudo dice [0.5]
+2024-06-27 17:02:47.696738: Epoch time: 62.04 s
+2024-06-27 17:02:49.617679: 
+2024-06-27 17:02:49.618571: Epoch 67
+2024-06-27 17:02:49.619181: Current learning rate: 0.00037
+2024-06-27 17:03:51.680029: meanmse:       0.016702212
+2024-06-27 17:03:51.681366: meanr2:        0.8634888821788949
+2024-06-27 17:03:51.681950: train_loss 0.4399
+2024-06-27 17:03:51.682438: val_loss 0.5352
+2024-06-27 17:03:51.682923: Pseudo dice [0.5]
+2024-06-27 17:03:51.683424: Epoch time: 62.07 s
+2024-06-27 17:03:53.592945: 
+2024-06-27 17:03:53.593621: Epoch 68
+2024-06-27 17:03:53.594120: Current learning rate: 0.00036
+2024-06-27 17:04:55.402674: meanmse:       0.015749285
+2024-06-27 17:04:55.404082: meanr2:        0.8720703121548904
+2024-06-27 17:04:55.404679: train_loss 0.4289
+2024-06-27 17:04:55.405170: val_loss 0.5243
+2024-06-27 17:04:55.405638: Pseudo dice [0.5]
+2024-06-27 17:04:55.406130: Epoch time: 61.82 s
+2024-06-27 17:04:55.406613: Yayy! New best R2: 0.8721
+2024-06-27 17:04:57.635294: 
+2024-06-27 17:04:57.636197: Epoch 69
+2024-06-27 17:04:57.636737: Current learning rate: 0.00035
+2024-06-27 17:05:59.416678: meanmse:       0.024975456
+2024-06-27 17:05:59.418096: meanr2:        0.7978182646514987
+2024-06-27 17:05:59.418664: train_loss 0.4453
+2024-06-27 17:05:59.419213: val_loss 0.6857
+2024-06-27 17:05:59.419693: Pseudo dice [0.5]
+2024-06-27 17:05:59.420214: Epoch time: 61.79 s
+2024-06-27 17:06:01.729629: 
+2024-06-27 17:06:01.730650: Epoch 70
+2024-06-27 17:06:01.731297: Current learning rate: 0.00034
+2024-06-27 17:07:03.587283: meanmse:       0.02124188
+2024-06-27 17:07:03.588473: meanr2:        0.8248694587572704
+2024-06-27 17:07:03.589020: train_loss 0.4192
+2024-06-27 17:07:03.589503: val_loss 0.6223
+2024-06-27 17:07:03.589948: Pseudo dice [0.5]
+2024-06-27 17:07:03.590438: Epoch time: 61.87 s
+2024-06-27 17:07:05.456864: 
+2024-06-27 17:07:05.457661: Epoch 71
+2024-06-27 17:07:05.458328: Current learning rate: 0.00033
+2024-06-27 17:08:07.260772: meanmse:       0.02332422
+2024-06-27 17:08:07.262122: meanr2:        0.8105100092819731
+2024-06-27 17:08:07.262765: train_loss 0.4407
+2024-06-27 17:08:07.263277: val_loss 0.6377
+2024-06-27 17:08:07.263768: Pseudo dice [0.5]
+2024-06-27 17:08:07.264291: Epoch time: 61.81 s
+2024-06-27 17:08:09.183728: 
+2024-06-27 17:08:09.184469: Epoch 72
+2024-06-27 17:08:09.184974: Current learning rate: 0.00032
+2024-06-27 17:09:11.049244: meanmse:       0.026427038
+2024-06-27 17:09:11.050493: meanr2:        0.7882757213941162
+2024-06-27 17:09:11.051094: train_loss 0.4319
+2024-06-27 17:09:11.051598: val_loss 0.7008
+2024-06-27 17:09:11.052212: Pseudo dice [0.5]
+2024-06-27 17:09:11.052744: Epoch time: 61.87 s
+2024-06-27 17:09:12.957858: 
+2024-06-27 17:09:12.958821: Epoch 73
+2024-06-27 17:09:12.959456: Current learning rate: 0.00031
+2024-06-27 17:10:14.804996: meanmse:       0.017335994
+2024-06-27 17:10:14.806196: meanr2:        0.8593233967455132
+2024-06-27 17:10:14.806792: train_loss 0.4359
+2024-06-27 17:10:14.807287: val_loss 0.5466
+2024-06-27 17:10:14.807770: Pseudo dice [0.5]
+2024-06-27 17:10:14.808330: Epoch time: 61.86 s
+2024-06-27 17:10:16.665354: 
+2024-06-27 17:10:16.666519: Epoch 74
+2024-06-27 17:10:16.667162: Current learning rate: 0.0003
+2024-06-27 17:11:18.565863: meanmse:       0.022114815
+2024-06-27 17:11:18.567615: meanr2:        0.8218789168134507
+2024-06-27 17:11:18.568691: train_loss 0.4002
+2024-06-27 17:11:18.569435: val_loss 0.6255
+2024-06-27 17:11:18.570111: Pseudo dice [0.5]
+2024-06-27 17:11:18.570706: Epoch time: 61.91 s
+2024-06-27 17:11:20.507569: 
+2024-06-27 17:11:20.508762: Epoch 75
+2024-06-27 17:11:20.509516: Current learning rate: 0.00029
+2024-06-27 17:12:22.415680: meanmse:       0.014827814
+2024-06-27 17:12:22.416692: meanr2:        0.8810084750743737
+2024-06-27 17:12:22.417168: train_loss 0.4269
+2024-06-27 17:12:22.417669: val_loss 0.4829
+2024-06-27 17:12:22.418188: Pseudo dice [0.5]
+2024-06-27 17:12:22.418673: Epoch time: 61.92 s
+2024-06-27 17:12:22.419061: Yayy! New best R2: 0.881
+2024-06-27 17:12:24.662595: 
+2024-06-27 17:12:24.663534: Epoch 76
+2024-06-27 17:12:24.664129: Current learning rate: 0.00028
+2024-06-27 17:13:26.527884: meanmse:       0.020944433
+2024-06-27 17:13:26.529098: meanr2:        0.8256751546433285
+2024-06-27 17:13:26.529783: train_loss 0.3946
+2024-06-27 17:13:26.534568: val_loss 0.6024
+2024-06-27 17:13:26.535093: Pseudo dice [0.5]
+2024-06-27 17:13:26.535587: Epoch time: 61.87 s
+2024-06-27 17:13:28.561003: 
+2024-06-27 17:13:28.562313: Epoch 77
+2024-06-27 17:13:28.562908: Current learning rate: 0.00027
+2024-06-27 17:14:30.337886: meanmse:       0.02790768
+2024-06-27 17:14:30.341585: meanr2:        0.7674736140147342
+2024-06-27 17:14:30.346566: train_loss 0.4351
+2024-06-27 17:14:30.347161: val_loss 0.7275
+2024-06-27 17:14:30.347613: Pseudo dice [0.5]
+2024-06-27 17:14:30.348063: Epoch time: 61.79 s
+2024-06-27 17:14:32.273671: 
+2024-06-27 17:14:32.274532: Epoch 78
+2024-06-27 17:14:32.275063: Current learning rate: 0.00026
+2024-06-27 17:15:33.981632: meanmse:       0.02158699
+2024-06-27 17:15:33.982653: meanr2:        0.8305578183231114
+2024-06-27 17:15:33.983068: train_loss 0.42
+2024-06-27 17:15:33.983581: val_loss 0.6047
+2024-06-27 17:15:33.983991: Pseudo dice [0.5]
+2024-06-27 17:15:33.984420: Epoch time: 61.72 s
+2024-06-27 17:15:35.824380: 
+2024-06-27 17:15:35.825240: Epoch 79
+2024-06-27 17:15:35.825774: Current learning rate: 0.00025
+2024-06-27 17:16:37.590036: meanmse:       0.021258883
+2024-06-27 17:16:37.591134: meanr2:        0.8309248983526353
+2024-06-27 17:16:37.591589: train_loss 0.4406
+2024-06-27 17:16:37.592010: val_loss 0.6152
+2024-06-27 17:16:37.592396: Pseudo dice [0.5]
+2024-06-27 17:16:37.592805: Epoch time: 61.77 s
+2024-06-27 17:16:40.112988: 
+2024-06-27 17:16:40.113687: Epoch 80
+2024-06-27 17:16:40.114149: Current learning rate: 0.00023
+2024-06-27 17:17:41.911048: meanmse:       0.018364033
+2024-06-27 17:17:41.912160: meanr2:        0.8513277696706957
+2024-06-27 17:17:41.912768: train_loss 0.461
+2024-06-27 17:17:41.913324: val_loss 0.5755
+2024-06-27 17:17:41.913866: Pseudo dice [0.5]
+2024-06-27 17:17:41.914374: Epoch time: 61.81 s
+2024-06-27 17:17:43.878335: 
+2024-06-27 17:17:43.879009: Epoch 81
+2024-06-27 17:17:43.879427: Current learning rate: 0.00022
+2024-06-27 17:18:45.862350: meanmse:       0.028786508
+2024-06-27 17:18:45.863701: meanr2:        0.7632502564749647
+2024-06-27 17:18:45.864311: train_loss 0.4523
+2024-06-27 17:18:45.864811: val_loss 0.7501
+2024-06-27 17:18:45.865293: Pseudo dice [0.5]
+2024-06-27 17:18:45.865835: Epoch time: 61.99 s
+2024-06-27 17:18:47.842209: 
+2024-06-27 17:18:47.843273: Epoch 82
+2024-06-27 17:18:47.843940: Current learning rate: 0.00021
+2024-06-27 17:19:49.765530: meanmse:       0.025933415
+2024-06-27 17:19:49.766793: meanr2:        0.7898216448601999
+2024-06-27 17:19:49.767486: train_loss 0.4094
+2024-06-27 17:19:49.768079: val_loss 0.6826
+2024-06-27 17:19:49.768602: Pseudo dice [0.5]
+2024-06-27 17:19:49.769167: Epoch time: 61.93 s
+2024-06-27 17:19:51.728770: 
+2024-06-27 17:19:51.729772: Epoch 83
+2024-06-27 17:19:51.730347: Current learning rate: 0.0002
+2024-06-27 17:20:53.576387: meanmse:       0.018192975
+2024-06-27 17:20:53.577530: meanr2:        0.8520267279513155
+2024-06-27 17:20:53.577950: train_loss 0.4123
+2024-06-27 17:20:53.578321: val_loss 0.5384
+2024-06-27 17:20:53.578710: Pseudo dice [0.5]
+2024-06-27 17:20:53.579220: Epoch time: 61.86 s
+2024-06-27 17:20:55.384717: 
+2024-06-27 17:20:55.385485: Epoch 84
+2024-06-27 17:20:55.386051: Current learning rate: 0.00019
+2024-06-27 17:21:57.151060: meanmse:       0.021895736
+2024-06-27 17:21:57.152711: meanr2:        0.823131020820188
+2024-06-27 17:21:57.153525: train_loss 0.4022
+2024-06-27 17:21:57.154138: val_loss 0.6266
+2024-06-27 17:21:57.154656: Pseudo dice [0.5]
+2024-06-27 17:21:57.155252: Epoch time: 61.78 s
+2024-06-27 17:21:58.984903: 
+2024-06-27 17:21:58.985747: Epoch 85
+2024-06-27 17:21:58.986278: Current learning rate: 0.00018
+2024-06-27 17:23:00.771904: meanmse:       0.022008326
+2024-06-27 17:23:00.773139: meanr2:        0.8237045199457079
+2024-06-27 17:23:00.773670: train_loss 0.4094
+2024-06-27 17:23:00.774135: val_loss 0.6116
+2024-06-27 17:23:00.774597: Pseudo dice [0.5]
+2024-06-27 17:23:00.775070: Epoch time: 61.8 s
+2024-06-27 17:23:02.652536: 
+2024-06-27 17:23:02.654515: Epoch 86
+2024-06-27 17:23:02.655036: Current learning rate: 0.00017
+2024-06-27 17:24:04.391116: meanmse:       0.018902563
+2024-06-27 17:24:04.392229: meanr2:        0.847857894431725
+2024-06-27 17:24:04.392814: train_loss 0.4242
+2024-06-27 17:24:04.393235: val_loss 0.5633
+2024-06-27 17:24:04.393675: Pseudo dice [0.5]
+2024-06-27 17:24:04.394096: Epoch time: 61.75 s
+2024-06-27 17:24:06.297914: 
+2024-06-27 17:24:06.298551: Epoch 87
+2024-06-27 17:24:06.299084: Current learning rate: 0.00016
+2024-06-27 17:25:08.114347: meanmse:       0.020729937
+2024-06-27 17:25:08.115550: meanr2:        0.8318798135011886
+2024-06-27 17:25:08.116113: train_loss 0.3907
+2024-06-27 17:25:08.116594: val_loss 0.5873
+2024-06-27 17:25:08.117132: Pseudo dice [0.5]
+2024-06-27 17:25:08.117646: Epoch time: 61.82 s
+2024-06-27 17:25:09.927633: 
+2024-06-27 17:25:09.928452: Epoch 88
+2024-06-27 17:25:09.929019: Current learning rate: 0.00015
+2024-06-27 17:26:11.748023: meanmse:       0.018038591
+2024-06-27 17:26:11.749156: meanr2:        0.852443820774618
+2024-06-27 17:26:11.749786: train_loss 0.3823
+2024-06-27 17:26:11.750311: val_loss 0.5601
+2024-06-27 17:26:11.750780: Pseudo dice [0.5]
+2024-06-27 17:26:11.751249: Epoch time: 61.83 s
+2024-06-27 17:26:13.607823: 
+2024-06-27 17:26:13.608554: Epoch 89
+2024-06-27 17:26:13.608954: Current learning rate: 0.00014
+2024-06-27 17:27:15.377128: meanmse:       0.019295808
+2024-06-27 17:27:15.378234: meanr2:        0.8460611687864472
+2024-06-27 17:27:15.378741: train_loss 0.3906
+2024-06-27 17:27:15.379185: val_loss 0.5591
+2024-06-27 17:27:15.379575: Pseudo dice [0.5]
+2024-06-27 17:27:15.379971: Epoch time: 61.78 s
+2024-06-27 17:27:17.566307: 
+2024-06-27 17:27:17.567484: Epoch 90
+2024-06-27 17:27:17.568138: Current learning rate: 0.00013
+2024-06-27 17:28:19.357630: meanmse:       0.017569244
+2024-06-27 17:28:19.358975: meanr2:        0.856968467404706
+2024-06-27 17:28:19.359585: train_loss 0.3772
+2024-06-27 17:28:19.360211: val_loss 0.5282
+2024-06-27 17:28:19.361539: Pseudo dice [0.5]
+2024-06-27 17:28:19.362098: Epoch time: 61.8 s
+2024-06-27 17:28:21.176601: 
+2024-06-27 17:28:21.177426: Epoch 91
+2024-06-27 17:28:21.177942: Current learning rate: 0.00011
+2024-06-27 17:29:23.081672: meanmse:       0.01981832
+2024-06-27 17:29:23.082797: meanr2:        0.8419623823771306
+2024-06-27 17:29:23.083290: train_loss 0.3947
+2024-06-27 17:29:23.083690: val_loss 0.5727
+2024-06-27 17:29:23.084086: Pseudo dice [0.5]
+2024-06-27 17:29:23.084491: Epoch time: 61.91 s
+2024-06-27 17:29:24.953834: 
+2024-06-27 17:29:24.954782: Epoch 92
+2024-06-27 17:29:24.955373: Current learning rate: 0.0001
+2024-06-27 17:30:27.026053: meanmse:       0.014830947
+2024-06-27 17:30:27.027290: meanr2:        0.8779973647425833
+2024-06-27 17:30:27.027820: train_loss 0.3565
+2024-06-27 17:30:27.028224: val_loss 0.4627
+2024-06-27 17:30:27.028623: Pseudo dice [0.5]
+2024-06-27 17:30:27.029107: Epoch time: 62.08 s
+2024-06-27 17:30:28.866085: 
+2024-06-27 17:30:28.866806: Epoch 93
+2024-06-27 17:30:28.867418: Current learning rate: 9e-05
+2024-06-27 17:31:30.708910: meanmse:       0.018263854
+2024-06-27 17:31:30.710385: meanr2:        0.8516254313754069
+2024-06-27 17:31:30.711349: train_loss 0.3678
+2024-06-27 17:31:30.717363: val_loss 0.5544
+2024-06-27 17:31:30.717960: Pseudo dice [0.5]
+2024-06-27 17:31:30.718673: Epoch time: 61.85 s
+2024-06-27 17:31:32.531522: 
+2024-06-27 17:31:32.532575: Epoch 94
+2024-06-27 17:31:32.533258: Current learning rate: 8e-05
+2024-06-27 17:32:34.326010: meanmse:       0.013963748
+2024-06-27 17:32:34.327485: meanr2:        0.8869752948417311
+2024-06-27 17:32:34.328066: train_loss 0.3835
+2024-06-27 17:32:34.328506: val_loss 0.4588
+2024-06-27 17:32:34.329014: Pseudo dice [0.5]
+2024-06-27 17:32:34.329572: Epoch time: 61.8 s
+2024-06-27 17:32:34.330111: Yayy! New best R2: 0.887
+2024-06-27 17:32:36.779931: 
+2024-06-27 17:32:36.780809: Epoch 95
+2024-06-27 17:32:36.781343: Current learning rate: 7e-05
+2024-06-27 17:33:38.559893: meanmse:       0.020303128
+2024-06-27 17:33:38.561115: meanr2:        0.8355375296120776
+2024-06-27 17:33:38.561792: train_loss 0.3422
+2024-06-27 17:33:38.562378: val_loss 0.5812
+2024-06-27 17:33:38.562881: Pseudo dice [0.5]
+2024-06-27 17:33:38.563362: Epoch time: 61.79 s
+2024-06-27 17:33:40.361398: 
+2024-06-27 17:33:40.362374: Epoch 96
+2024-06-27 17:33:40.363065: Current learning rate: 6e-05
+2024-06-27 17:34:42.465940: meanmse:       0.019718848
+2024-06-27 17:34:42.467070: meanr2:        0.841143675711967
+2024-06-27 17:34:42.467504: train_loss 0.3469
+2024-06-27 17:34:42.467849: val_loss 0.5771
+2024-06-27 17:34:42.468194: Pseudo dice [0.5]
+2024-06-27 17:34:42.468580: Epoch time: 62.12 s
+2024-06-27 17:34:44.383602: 
+2024-06-27 17:34:44.384217: Epoch 97
+2024-06-27 17:34:44.384617: Current learning rate: 4e-05
+2024-06-27 17:35:46.236370: meanmse:       0.019109162
+2024-06-27 17:35:46.237553: meanr2:        0.8440307934281428
+2024-06-27 17:35:46.238179: train_loss 0.3877
+2024-06-27 17:35:46.238672: val_loss 0.5582
+2024-06-27 17:35:46.239171: Pseudo dice [0.5]
+2024-06-27 17:35:46.239722: Epoch time: 61.86 s
+2024-06-27 17:35:48.334012: 
+2024-06-27 17:35:48.334947: Epoch 98
+2024-06-27 17:35:48.335503: Current learning rate: 3e-05
+2024-06-27 17:36:50.157060: meanmse:       0.022923255
+2024-06-27 17:36:50.158382: meanr2:        0.8165274071073054
+2024-06-27 17:36:50.158976: train_loss 0.3542
+2024-06-27 17:36:50.159487: val_loss 0.6431
+2024-06-27 17:36:50.159959: Pseudo dice [0.5]
+2024-06-27 17:36:50.160518: Epoch time: 61.83 s
+2024-06-27 17:36:51.971376: 
+2024-06-27 17:36:51.972293: Epoch 99
+2024-06-27 17:36:51.972897: Current learning rate: 2e-05
+2024-06-27 17:37:53.816249: meanmse:       0.0247692
+2024-06-27 17:37:53.817925: meanr2:        0.8023213978903012
+2024-06-27 17:37:53.818555: train_loss 0.3692
+2024-06-27 17:37:53.819031: val_loss 0.6752
+2024-06-27 17:37:53.819542: Pseudo dice [0.5]
+2024-06-27 17:37:53.820117: Epoch time: 61.86 s
+2024-06-27 17:37:56.161458: Training done.
