@@ -30,7 +30,7 @@ Each video in our dataset corresponds to an individual JSON file. The structure 
 ```
 - **`annotations`**: This is a dictionary where each key represents a frame index of the video, and the value indicates an annotation value, with ES targeting 0 and ED targeting 1.
 #### Adult Echonet-Dynamic Dataset
-Ensure to download and prepare the Echonet-Dynamic dataset, ensuring the directory structure matches the specified requirements.
+Ensure to download and prepare the [Echonet-Dynamic](https://echonet.github.io/dynamic/) dataset, ensuring the directory structure matches the specified requirements.
 
 ### 3. Training & Evaluation
 To train and evaluate the model, follow the provided scripts that are adapted for multiple GPU setups.
