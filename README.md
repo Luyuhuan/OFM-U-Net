@@ -25,7 +25,7 @@ Each video in our dataset corresponds to an individual JSON file. The structure 
     "4": 0.7023319615912207,
     "5": 0.4705075445816187,
     "6": 0.2962962962962962,
-    ...
+    . . .
   }
 }
 
