@@ -15,7 +15,7 @@ Clone the repository and set up the required environment.
 #### Fetal Echocardiogram Dataset
 Each video in our dataset corresponds to an individual JSON file. The structure of the JSON file is outlined below:
 
-\```json
+```json
 {
   "annotations": {
     "0": 0.0,
@@ -27,7 +27,7 @@ Each video in our dataset corresponds to an individual JSON file. The structure 
     "6": 0.2962962962962962,
   }
 }
-\```
+```
 - **`annotations`**: This is a dictionary where each key represents a frame index of the video, and the value `-1` indicates a specific annotation state or placeholder value for that frame.
 #### Adult Echonet-Dynamic Dataset
 Ensure to download and prepare the Echonet-Dynamic dataset, ensuring the directory structure matches the specified requirements.
