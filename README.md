@@ -33,11 +33,11 @@ Each video in our dataset corresponds to an individual JSON file. The structure 
 Ensure to download and prepare the [Echonet-Dynamic](https://echonet.github.io/dynamic/) dataset, ensuring the directory structure matches the specified requirements.
 
 ### 3. Training & Evaluation
-To train a model, you can simply run  (nnunetv2/run/run_training.py)
+To train a model, you can simply run  (run/run_training.py)
 ```bash
 python run_training.py 
 ```
-To test the trained model, you can simply run (nnunetv2/inference/predict_from_raw_data.py)
+To test the trained model, you can simply run (inference/predict_from_raw_data.py)
 ```bash
 python predict_from_raw_data.py
 ```
