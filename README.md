@@ -44,7 +44,5 @@ python predict_from_raw_data.py
 
 # My Project
 
-Here is the project video:
-
-[Click here to view the video](./opticalflowvideo/best.mp4)
+![Converted GIF](opticalflowvideo/best.gif)
 
