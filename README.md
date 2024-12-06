@@ -41,3 +41,10 @@ To test the trained model, you can simply run (inference/predict_from_raw_data.p
 ```bash
 python predict_from_raw_data.py
 ```
+
+# My Project
+
+Here is the project video:
+
+[Click here to view the video](./opticalflowvideo/best.mp4)
+
