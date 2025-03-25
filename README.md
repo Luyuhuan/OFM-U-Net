@@ -52,3 +52,7 @@ python predict_from_raw_data.py
 
 ![Converted GIF](opticalflowvideo/worstpre.gif)
 
+## Acknowledgement
+This website and project structure are built based on the excellent U-Mamba repository.
+We sincerely thank the authors for providing a well-organized and open-source template that served as the foundation for our customization and development.
+
