@@ -56,3 +56,7 @@ python predict_from_raw_data.py
 This website and project structure are built based on the excellent U-Mamba repository.
 We sincerely thank the authors for providing a well-organized and open-source template that served as the foundation for our customization and development.
 
+This project structure is built based on the excellent [U-Mamba](https://u-mamba.github.io/) repository.  
+We sincerely thank the authors for providing a well-organized and open-source code,  
+which served as the foundation for our customization and development.
+
